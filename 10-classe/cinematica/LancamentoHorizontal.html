@@ -224,15 +224,20 @@
 
         <div class="animation p-2">
           <div class="animation-cene">
-            <h1 class="fs-3 text-center pt-1">
-              Simulação de Lançamento Horizontal
-            </h1>
+            <h1 class="fs-3 text-center pt-1">Lançamento Horizontal</h1>
 
             <div class="background-plane">
               <div class="plane"></div>
+              <div class="cannon"></div>
+              <div class="cannon-base">
+                <div class="stick1"></div>
+                <div class="stick2"></div>
+              </div>
               <div id="animationContainer" class="border-0 bg-info main"></div>
             </div>
             <div id="info" class="">
+              <p>Movimento Horizontal:<strong> x = v<sub>0x</sub>.t</strong></p>
+              <p>Movimento Vertical:<strong> y = &frac12;.g.t²</strong></p>
               <p class="">Tempo: <span id="tempo">0.00</span> s</p>
               <p class="">
                 Movimento Horizontal:
@@ -296,6 +301,11 @@
       let velocidadeGlobal;
       let tempoAnimacao = 0;
       let tempoTotal, distanciaTotal, escala;
+      let cannonBase = document.querySelector(".cannon-base");
+
+      function resizeCannonBase(baseHeightValue) {
+        cannonBase.style.height = parseInt(baseHeightValue) + "px";
+      }
 
       document
         .getElementById("inputForm")
@@ -306,7 +316,9 @@
             document.getElementById("velocidade").value
           );
 
-          await movePlane(velocidadeGlobal);
+          iniciarSimulacao(alturaGlobal, velocidadeGlobal);
+          document.getElementById("pauseButton").disabled = false;
+          document.getElementById("restartButton").disabled = false;
         });
 
       document
@@ -344,10 +356,7 @@
             clearInterval(interval);
           }
 
-          if(position >= 130){
-            iniciarSimulacao(alturaGlobal, velocidadeGlobal);
-            document.getElementById("pauseButton").disabled = false;
-            document.getElementById("restartButton").disabled = false;
+          if (position >= 130) {
           }
         }, 100);
       }
@@ -371,8 +380,11 @@
         const linha = document.createElement("div");
         linha.className = "linha";
         linha.style.width = `${distanciaTotal * escala}px`;
-        linha.style.top = `${altura * escala + 50}px`;
+        const baseHeightValue = altura * escala + 50;
+        linha.style.top = `${baseHeightValue}px`;
         container.appendChild(linha);
+
+        resizeCannonBase(baseHeightValue - 79);
 
         // Desenhar o objeto inicial
         const objeto = document.createElement("div");
