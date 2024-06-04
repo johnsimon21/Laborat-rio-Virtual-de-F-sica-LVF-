@@ -1,1 +1,1 @@
-# Laborat-rio-Virtual-de-F-sica-LVF-
+# Laboratório-Virtual-de-Física-(LVF)
