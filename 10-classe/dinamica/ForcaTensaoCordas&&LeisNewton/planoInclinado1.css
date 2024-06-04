@@ -1,0 +1,74 @@
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    margin: 0;
+}
+
+.container {
+    text-align: center;
+}
+
+#inputForm {
+    margin-bottom: 20px;
+}
+
+#animationContainer {
+    position: relative;
+    width: 600px;
+    height: 400px;
+    border: 1px solid #000;
+}
+
+#plano {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 200px;
+    background: linear-gradient(45deg, #ccc 50%, transparent 50%);
+}
+
+.box {
+    position: absolute;
+    bot: -100px;
+    width: 100px;
+    height: 100px;
+    background-color: blueviolet;
+    top: 2px;
+}
+
+#caixa {
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    background-color: yellow;
+    transform-origin: bottom left;
+}
+
+#forcaPeso, #forcaNormal, #forcaPx, #forcaPy {
+    position: absolute;
+    width: 2px;
+    background-color: red;
+}
+
+#forcaPeso {
+    height: 150px;
+    background-color: red;
+}
+
+#forcaNormal {
+    height: 100px;
+    background-color: black;
+}
+
+#forcaPx, #forcaPy {
+    height: 100px;
+    background-color: blue;
+}
+
+#info {
+    margin-top: 20px;
+}

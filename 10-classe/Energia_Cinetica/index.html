@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Energia Cinética da Bola de Tênis Miguel</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+    }
+
+    canvas {
+      background-color: gray;
+      display: block;
+      margin: 20px auto;
+      border: 5px solid black;
+    }
+
+    .controls {
+      text-align: center;
+      margin-top: 20px;
+    }
+
+    .controls label {
+      font-weight: bold;
+    }
+
+    .controls input {
+      width: 60px;
+      margin-right: 10px;
+    }
+
+    .controls button {
+      padding: 5px 10px;
+      background-color: gray;
+      color: white;
+      border: none;
+      cursor: pointer;
+      margin: 0 5px;
+    }
+
+    #energy {
+      margin-top: 10px;
+      font-weight: bolder;
+    }
+  </style>
+</head>
+
+<body>
+  <canvas id="court" width="600" height="300"></canvas>
+  <div class="controls">
+    <label for="mass">Massa (kg):</label>
+    <input type="number" id="mass" value="0">
+    <label for="speed">Velocidade (m/s):</label>
+    <input type="number" id="speed" value="0">
+    <button onclick="startAnimation()">Iniciar</button>
+    <button onclick="stopAnimation()">Parar</button>
+    <button onclick="resetAnimation()">Reiniciar</button>
+    <div id="energy"></div>
+  </div>
+  <script>
+
+    const canvas = document.getElementById('court');
+    const ctx = canvas.getContext('2d');
+    const ballRadius = 10;
+    let xPos = ballRadius;
+    let yPos = canvas.height / 2;
+    let dx = 0; // Velocidade inicial é zero
+    let dy = 0;
+    let timer;
+
+    function drawBall() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      ctx.beginPath();
+      ctx.arc(xPos, yPos, ballRadius, 0, Math.PI * 2);
+      ctx.fillStyle = '#FFF';
+      ctx.fill();
+      ctx.closePath();
+    }
+
+    function startAnimation() {
+      animate();
+    }
+
+    function animate() {
+      timer = requestAnimationFrame(animate);
+      drawBall();
+      xPos += dx;
+      if (xPos + dx > canvas.width - ballRadius || xPos + dx < ballRadius) {
+        cancelAnimationFrame(timer);
+        const mass = parseFloat(document.getElementById('mass').value);
+        const speed = parseFloat(document.getElementById('speed').value);
+        const energy = calculateEnergy(mass, speed);
+        document.getElementById('energy').innerText = `Energia Cinética: ${energy.toFixed(2)} J`;
+      }
+    }
+
+    function calculateEnergy(mass, speed) {
+      const kineticEnergy = (mass * Math.pow(speed, 2)) / 2;
+      return kineticEnergy;
+    }
+
+    function stopAnimation() {
+      cancelAnimationFrame(timer);
+    }
+
+    function resetAnimation() {
+      xPos = ballRadius;
+      yPos = canvas.height / 2;
+      dx = 0;
+      dy = 0;
+      document.getElementById('energy').innerText = '';
+      drawBall();
+    }
+
+    // Adicionando event listeners para detectar mudanças nos inputs
+    document.getElementById('mass').addEventListener('input', function() {
+      const mass = parseFloat(this.value);
+      const speed = parseFloat(document.getElementById('speed').value);
+      updateVelocity(mass, speed);
+    });
+
+    document.getElementById('speed').addEventListener('input', function() {
+      const speed = parseFloat(this.value);
+      const mass = parseFloat(document.getElementById('mass').value);
+      updateVelocity(mass, speed);
+    });
+
+    function updateVelocity(mass, speed) {
+      if (mass > speed) {
+        dx = speed / mass;
+      } else if (speed > mass) {
+        dx = 1;
+      }
+    }
+
+  </script>
+</body>
+
+</html>

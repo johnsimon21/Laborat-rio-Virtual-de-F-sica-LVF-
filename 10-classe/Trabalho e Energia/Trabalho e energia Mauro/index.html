@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Simulação de Força Constante</title>
+  <style>
+    canvas {
+      border: 2px solid black;
+    }
+  </style>
+</head>
+<body>
+  <div>
+    <label for="massInput">Massa (kg):</label>
+    <input type="number" id="massInput">
+  </div>
+  <div>
+    <label for="forceInput">Força (N):</label>
+    <input type="number" id="forceInput">
+  </div>
+  <button id="startButton">Iniciar</button>
+  <button id="pauseButton">Pausar</button>
+  <button id="resetButton">Resetar</button>
+  <canvas id="canvas" width="600" height="400"></canvas>
+  <div>
+    <label for="velocityOutput">Velocidade (m/s):</label>
+    <output id="velocityOutput">0</output>
+  </div>
+  <div>
+    <label for="accelerationOutput">Aceleração (m/s²):</label>
+    <output id="accelerationOutput">0</output>
+  </div>
+
+  <script>
+    const canvas = document.getElementById('canvas');
+    const ctx = canvas.getContext('2d');
+
+    let x = 50;
+    const y = canvas.height / 2;
+    let velocity = 0;
+    let acceleration = 0;
+    let mass = parseFloat(document.getElementById('massInput').value);
+    let force = parseFloat(document.getElementById('forceInput').value);
+    let animationId = null;
+
+    function updateParameters() {
+      mass = parseFloat(document.getElementById('massInput').value);
+      force = parseFloat(document.getElementById('forceInput').value);
+    }
+
+    function startAnimation() {
+      updateParameters();
+      if (animationId === null) {
+        animate();
+      }
+    }
+
+    function pauseAnimation() {
+      cancelAnimationFrame(animationId);
+      animationId = null;
+    }
+
+    function resetAnimation() {
+      x = 50;
+      velocity = 0;
+      acceleration = 0;
+      pauseAnimation();
+      animate();
+    }
+
+    function animate() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+      ctx.beginPath();
+      ctx.arc(x, y, 20, 0, Math.PI * 2);
+      ctx.fillStyle = 'blue';
+      ctx.fill();
+
+      acceleration = force / mass;
+      velocity += acceleration;
+      x += velocity;
+
+      // Atualiza as saídas de texto com a velocidade e a aceleração
+      document.getElementById('velocityOutput').textContent = velocity.toFixed(2);
+      document.getElementById('accelerationOutput').textContent = acceleration.toFixed(2);
+
+      // Limita o objeto a permanecer dentro da área do canvas
+      if (x < 20) {
+        x = 20;
+        velocity = 0;
+      } else if (x > canvas.width - 20) {
+        x = canvas.width - 20;
+        velocity = 0;
+      }
+
+      animationId = requestAnimationFrame(animate);
+    }
+
+    document.getElementById('startButton').addEventListener('click', startAnimation);
+    document.getElementById('pauseButton').addEventListener('click', pauseAnimation);
+    document.getElementById('resetButton').addEventListener('click', resetAnimation);
+  </script>
+</body>
+</html>

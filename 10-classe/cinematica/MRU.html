@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Movimento Retilíneo Uniforme</title>
+    <link rel="stylesheet" href="./MRU.css" />
+    <link rel="stylesheet" href="/bootstrap-5.3.3-dist/css/bootstrap.css" />
+    <link rel="stylesheet" href="/index.css" />
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <!-- Adicionei Chart.js -->
+  </head>
+  <body>
+    <div class="container-fluid p-0">
+      <header
+        id="nav"
+        class="d-flex flex-wrap justify-content-center bg-black py-3"
+      >
+        <a
+          href="#"
+          class="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-body-emphasis text-decoration-none"
+        >
+          <svg class="bi me-2" width="40" height="32">
+            <use xlink:href="#bootstrap"></use>
+          </svg>
+          <span class="fs-4 text-white">Laboratório Virtual de Física</span>
+        </a>
+
+        <ul class="nav nav-pills">
+          <li class="nav-item">
+            <a href="#" class="nav-link text-white" aria-current="page">Home</a>
+          </li>
+          <li class="nav-item">
+            <a href="#" class="nav-link text-white active">Simulações</a>
+          </li>
+          <li class="nav-item me-5">
+            <a href="#" class="nav-link text-white">Sobre</a>
+          </li>
+        </ul>
+      </header>
+
+      <div class="content flex h-70 scroll-auto">
+        <div class="flex-shrink-0 p-3 bg-black fixed-left" style="width: 280px">
+          <a
+            href="#"
+            class="d-flex align-items-center pb-3 mb-3 text-white text-decoration-none border-bottom"
+          >
+            <svg class="bi pe-none me-2" width="30" height="24">
+              <use xlink:href="#bootstrap"></use>
+            </svg>
+            <span class="fs-5 fw-semibold">10ª Classe</span>
+          </a>
+          <ul class="list-unstyled ps-0">
+            <li class="mb-1">
+              <button
+                class="btn btn-toggle text-white d-inline-flex align-items-center rounded border-0 collapsed"
+                data-bs-toggle="collapse"
+                data-bs-target="#home-collapse"
+                aria-expanded="true"
+              >
+                Cinemática
+              </button>
+              <div class="collapse show" id="home-collapse">
+                <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+                  <li>
+                    <a
+                      href="#"
+                      class="ps-2 d-inline-flex text-white text-decoration-none rounded"
+                      >Movimento Retilíneo Uniforme</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      href="./MRUV.html"
+                      class="ps-2 text-secondary d-inline-flex text-decoration-none rounded"
+                      >Movimento Retilíneo Uniformemente Variado</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      href="./MCU.html"
+                      class="ps-2 text-secondary d-inline-flex text-decoration-none rounded"
+                      >Movimento Curvilíneo Uniforme</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      href="./MCUV.html"
+                      class="ps-2 text-secondary d-inline-flex text-decoration-none rounded"
+                      >Movimento Curvilíneo Uniformemente Variado</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      href="./LancamentoHorizontal.html"
+                      class="ps-2 text-secondary d-inline-flex text-decoration-none rounded"
+                      >Lançamento Horizontal</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      href="./LancamentoObliquo.html"
+                      class="ps-2 text-secondary d-inline-flex text-decoration-none rounded"
+                      >Lançamento Oblíquo</a
+                    >
+                  </li>
+                </ul>
+              </div>
+            </li>
+            <li class="mb-1">
+              <button
+                class="btn btn-toggle text-white d-inline-flex align-items-center rounded border-0 collapsed"
+                data-bs-toggle="collapse"
+                data-bs-target="#dynamics-collapse"
+                aria-expanded="true"
+              >
+                Dinâmica
+              </button>
+              <div class="collapse" id="dynamics-collapse">
+                <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+                  <li>
+                    <a
+                      href="/10-classe/dinamica/ForcaTensaoCordas&&LeisNewton/forcaTencao.html"
+                      class="ps-2 text-secondary d-inline-flex text-decoration-none rounded"
+                      >Força de Tensão em Cordas</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      href="/10-classe/dinamica/ForcaTensaoCordas&&LeisNewton/planoInclinado.html"
+                      class="ps-2 text-secondary d-inline-flex text-decoration-none rounded"
+                      >Plano Inclinado</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      href="/10-classe/dinamica/ForcaTensaoCordas&&LeisNewton/segundaLeiNewtoniana.html"
+                      class="ps-2 text-secondary d-inline-flex text-decoration-none rounded"
+                      >2ª Lei de Newton ou Lei de Causa e Efeito</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      href="/10-classe/dinamica/ForcaTensaoCordas&&LeisNewton/terceiraLeiNewton.html"
+                      class="ps-2 text-secondary d-inline-flex text-decoration-none rounded"
+                      >3ª Lei de Newton ou Lei de Ação e Reação</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      href="/10-classe/dinamica/ForcaTensaoCordas&&LeisNewton/tracaoComPolias.html"
+                      class="ps-2 text-secondary d-inline-flex text-decoration-none rounded"
+                      >Força de Tensão Com Polias</a
+                    >
+                  </li>
+                </ul>
+              </div>
+            </li>
+            <li class="mb-1">
+              <button
+                class="btn btn-toggle text-white d-inline-flex align-items-center rounded border-0 collapsed"
+                data-bs-toggle="collapse"
+                data-bs-target="#work-energy-collapse"
+                aria-expanded="true"
+              >
+                Trabalho e Energia
+              </button>
+              <div class="collapse" id="work-energy-collapse">
+                <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+                  <li>
+                    <a
+                      href="/10-classe/Trabalho e Energia/energiaCinética.html"
+                      class="ps-2 text-secondary d-inline-flex text-decoration-none rounded"
+                      >Energia Cinética</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      href="/10-classe/Trabalho e Energia/energiaPotencial.html"
+                      class="ps-2 text-secondary d-inline-flex text-decoration-none rounded"
+                      >Energia Potencial</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      href="/10-classe/Trabalho e Energia/energiaMecânica.html"
+                      class="ps-2 text-secondary d-inline-flex text-decoration-none rounded"
+                      >Energia Mecânica</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      href="/10-classe/Trabalho e Energia/energiaPotencialElastica.html"
+                      class="ps-2 text-secondary d-inline-flex text-decoration-none rounded"
+                      >Energia Potencial Elástica</a
+                    >
+                  </li>
+                </ul>
+              </div>
+            </li>
+            <li class="mb-1">
+              <button
+                class="btn btn-toggle text-white d-inline-flex align-items-center rounded border-0 collapsed"
+                data-bs-toggle="collapse"
+                data-bs-target="#statics-collapse"
+                aria-expanded="true"
+              >
+                Estática
+              </button>
+              <div class="collapse" id="statics-collapse">
+                <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+                  <li>
+                    <a
+                      href="/10-classe/estática/maquinasSimples.html"
+                      class="ps-2 text-secondary d-inline-flex text-decoration-none rounded"
+                      >Máquinas Simples</a
+                    >
+                  </li>
+                </ul>
+              </div>
+            </li>
+          </ul>
+        </div>
+
+       <div class="animation p-2">
+  <div class="animation-cene">
+    <h1 class="fs-3 text-center pt-1">Movimento Retilíneo Uniforme</h1>
+    <br />
+
+    <main class="bg-info main">
+      <button id="toggleFullscreen" class="resize-secreen">Tela Cheia</button>
+
+      <div class="display-variables">
+        <div class="equation">x = x<sub>o</sub> + v.t</div>
+        <div class="time" id="timeValue">Tempo = 0 (s)</div>
+        <div class="initialPosition" id="initialPositionValue">
+          Posição Inicial = 0 (m)
+        </div>
+        <div class="finalPosition" id="finalPositionValue">
+          Posição Final = 0 (m)
+        </div>
+        <div class="velocityInfo" id="velocityInfo">
+          v = 0 (velocidade nula)
+        </div>
+      </div>
+
+      <div class="car">
+        <div class="velocity-stick">
+          <img src="/10-classe/dinamica/ForcaTensaoCordas&&LeisNewton/assets/forward.png" class="forward forward-car" />
+          <div class="letter">
+            <div class="arrow-letter">
+              <img src="/10-classe/dinamica/ForcaTensaoCordas&&LeisNewton/assets/forward.png" class="forward forward-letter go" />
+            </div>
+            v
+          </div>
+        </div>
+      </div>
+
+      <div class="base"></div>
+    </main>
+    <div id="draggable" class="graphic">
+      <canvas id="positionChart"></canvas>
+    </div>
+
+    <div id="full-controllers" class="controllers d-flex m-3">
+      <fieldset class="d-flex align-items-center">
+        <label for="initialPositionInput" class="me-1">Posição Inicial (m)</label>
+        <input type="number" id="initialPositionInput" value="0" required class="form-control" />
+      </fieldset>
+      <fieldset class="d-flex align-items-center ms-2">
+        <label for="initialTimeInput" class="me-1">Tempo Inicial (s)</label>
+        <input type="number" id="initialTimeInput" value="0" required class="form-control" />
+      </fieldset>
+      <fieldset class="d-flex align-items-center ms-2">
+        <label for="velocityValue" class="me-1">Velocidade (m/s)</label>
+        <input type="number" id="velocityValue" value="0" required class="form-control" />
+      </fieldset>
+
+      <div class="buttons ms-2 d-flex pt-3">
+        <input type="button" value="Começar" id="btnStart" class="btn btn-success" onclick="startSimulation()" />
+        <input type="button" value="Pausar" id="btnPause" class="btn btn-secondary" onclick="pauseSimulation()" />
+        <input type="button" value="Reiniciar" id="btnRestart" class="btn btn-primary" onclick="restartSimulation()" />
+      </div>
+    </div>
+  </div>
+</div>
+<script src="/main.js"></script>
+<script src="/bootstrap-5.3.3-dist/js/bootstrap.js"></script>
+
+    <script>
+      let car = document.querySelector(".car");
+      let initialPosition = parseInt(window.getComputedStyle(car).marginLeft);
+      let forward_arrow = document.querySelector(".forward-car");
+      let forward_letter = document.querySelector(".forward-letter");
+
+      forward_arrow.classList.add("go");
+      forward_letter.classList.add("go");
+
+      let interval = null;
+      let intervalStarted = false;
+
+      // Configuração inicial do gráfico
+      const ctx = document.getElementById("positionChart").getContext("2d");
+      const positionChart = new Chart(ctx, {
+        type: "line",
+        data: {
+          labels: [], // Labels do eixo x (tempo)
+          datasets: [
+            {
+              label: "Posição (m)",
+              data: [], // Dados do eixo y (posição)
+              borderColor: "black",
+              borderWidth: 1,
+              fill: false,
+            },
+          ],
+        },
+        options: {
+          responsive: true,
+          scales: {
+            x: {
+              title: {
+                display: true,
+                text: "Tempo (s)",
+              },
+            },
+            y: {
+              title: {
+                display: true,
+                text: "Posição (m)",
+              },
+            },
+          },
+        },
+      });
+
+      function updateChart(time, position) {
+        positionChart.data.labels.push(time);
+        positionChart.data.datasets[0].data.push(position);
+        positionChart.update();
+      }
+
+      function startSimulation() {
+        let position = parseInt(window.getComputedStyle(car).marginLeft);
+        let time = 0;
+        let velocityValue = parseInt(
+          document.querySelector("#velocityValue").value
+        );
+
+        if (!intervalStarted && velocityValue !== 0) {
+          interval = setInterval(() => {
+            time += 1;
+            position += velocityValue;
+
+            // if (position >= 40) {
+            //   position += (30 * 100) / position;
+            // }
+
+            if (velocityValue < 0) {
+              car.style.transform = "rotateY(180deg)";
+              forward_letter.classList.add("back");
+            } else {
+              forward_letter.classList.add("go");
+              car.style.transform = "rotateY(0deg)";
+            }
+
+            const mainWidth = document.querySelector("main").offsetWidth;
+            const carWidth = car.offsetWidth;
+
+            if (position + carWidth >= mainWidth || position <= 0) {
+              if (velocityValue > 0) {
+                const lastPosition = position + carWidth - mainWidth;
+
+                if (lastPosition >= 0) {
+                  car.style.marginLeft = `${mainWidth - carWidth}px`;
+                  clearInterval(interval);
+                } else {
+                  clearInterval(interval);
+                }
+              } else {
+                car.style.marginLeft = `${0}px`;
+                clearInterval(interval);
+              }
+            } else {
+              car.style.marginLeft = `${position}px`;
+              if (position + carWidth === mainWidth) {
+                clearInterval(interval);
+              }
+            }
+
+            const finalPositionValue = velocityValue * time;
+
+            document.querySelector(
+              "#timeValue"
+            ).textContent = `Tempo = ${time.toFixed(1)} (s)`;
+            document.querySelector(
+              "#initialPositionValue"
+            ).textContent = `Posição Inicial = ${initialPosition} (m)`;
+            document.querySelector(
+              "#finalPositionValue"
+            ).textContent = `Posição Final = ${finalPositionValue.toFixed(
+              1
+            )} (m)`;
+            document.querySelector("#velocityInfo").textContent =
+              velocityValue > 0
+                ? "v > 0 (movimento progressivo)"
+                : "v < 0 (movimento retrógrado)";
+
+            updateChart(time.toFixed(1), finalPositionValue.toFixed(1)); // Atualiza o gráfico
+
+            intervalStarted = true;
+          }, 100);
+        }
+      }
+
+      function pauseSimulation() {
+        clearInterval(interval);
+        intervalStarted = false;
+      }
+
+      function restartSimulation() {
+        clearInterval(interval);
+        car.style.marginLeft = "0px";
+        document.querySelector("#timeValue").textContent = `Tempo = ${0} (s)`;
+        document.querySelector(
+          "#initialPositionValue"
+        ).textContent = `Posição Inicial = ${initialPosition} (m)`;
+        document.querySelector(
+          "#finalPositionValue"
+        ).textContent = `Posição Final = ${0} (m)`;
+        document.querySelector("#velocityInfo").textContent =
+          "v = 0 (velocidade nula)";
+
+        forward_arrow.classList.remove("back");
+        forward_letter.classList.add("go");
+        car.style.transform = "rotateY(0deg)";
+        forward_arrow.classList.add("go");
+        intervalStarted = false;
+
+        // Resetar o gráfico
+        positionChart.data.labels = [];
+        positionChart.data.datasets[0].data = [];
+        positionChart.update();
+      }
+    </script>
+  </body>
+</html>

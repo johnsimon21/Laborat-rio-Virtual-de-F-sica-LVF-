@@ -1,0 +1,77 @@
+body
+{
+	background-color: #fff;
+	text-align: center;
+}
+
+footer {
+	background-color: black;
+	color: white;
+}
+
+footer#footer {
+    background: none repeat scroll 0 0 black;
+}
+
+section
+{
+	font-style: oblique;
+	margin: auto;
+	display: inline-block;
+}
+
+#options
+{
+	margin: 10px;
+}
+
+article
+{
+	margin: 10px 10px 10px 10px;
+	float: left;
+}
+
+#advancedOptionsArticle
+{
+	margin: 10px 10px 10px 10px;
+	display: none; 	
+	float: left;
+}
+
+#advancedOptionsArticle2
+{
+	margin: 10px 10px 10px 10px;
+	display: none; 	
+	float: left;
+}
+#plane
+{
+	height: 400px;
+	width: 550px;
+	border: 2px solid #3498db;
+	margin: 10px 10px 10px 10px;
+}
+#canvasArticle
+{
+	float: none; 
+	margin: 10px;
+}
+#parametersArticle
+{
+	min-height: 100px; 
+	min-width: 150px; 
+	float: none;
+	text-align: left;
+}
+footer
+{
+	font-style: oblique;
+	float: bottom;
+}
+
+
+.form1 {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}

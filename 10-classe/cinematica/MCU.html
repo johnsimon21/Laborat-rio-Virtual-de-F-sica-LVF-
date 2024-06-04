@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Movimento Circular Uniforme</title>
+    <link rel="stylesheet" href="./MCU.css" />
+    <link rel="stylesheet" href="/index.css" />
+    <link rel="stylesheet" href="/bootstrap-5.3.3-dist/css/bootstrap.css" />
+  </head>
+  <body>
+    <div class="container-fluid p-0">
+      <header
+        id="nav"
+        class="d-flex flex-wrap justify-content-center bg-black py-3"
+      >
+        <a
+          href="#"
+          class="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-body-emphasis text-decoration-none"
+        >
+          <svg class="bi me-2" width="40" height="32">
+            <use xlink:href="#bootstrap"></use>
+          </svg>
+          <span class="fs-4 text-white">Laboratório Virtual de Física</span>
+        </a>
+
+        <ul class="nav nav-pills">
+          <li class="nav-item">
+            <a href="#" class="nav-link text-white" aria-current="page">Home</a>
+          </li>
+          <li class="nav-item">
+            <a href="#" class="nav-link text-white active">Simulações</a>
+          </li>
+          <li class="nav-item me-5">
+            <a href="#" class="nav-link text-white">Sobre</a>
+          </li>
+        </ul>
+      </header>
+
+      <div class="content flex h-70 scroll-auto">
+        <div class="flex-shrink-0 p-3 bg-black fixed-left" style="width: 280px">
+          <a
+            href="#"
+            class="d-flex align-items-center pb-3 mb-3 text-white text-decoration-none border-bottom"
+          >
+            <svg class="bi pe-none me-2" width="30" height="24">
+              <use xlink:href="#bootstrap"></use>
+            </svg>
+            <span class="fs-5 fw-semibold">10ª Classe</span>
+          </a>
+          <ul class="list-unstyled ps-0">
+            <li class="mb-1">
+              <button
+                class="btn btn-toggle text-white d-inline-flex align-items-center rounded border-0 collapsed"
+                data-bs-toggle="collapse"
+                data-bs-target="#home-collapse"
+                aria-expanded="true"
+              >
+                Cinemática
+              </button>
+              <div class="collapse show" id="home-collapse">
+                <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+                  <li>
+                    <a
+                      href="./MRU.html"
+                      class="ps-2 d-inline-flex text-secondary text-decoration-none rounded"
+                      >Movimento Retilíneo Uniforme</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      href="./MRUV.html"
+                      class="ps-2 text-secondary d-inline-flex text-decoration-none rounded"
+                      >Movimento Retilíneo Uniformemente Variado</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      href="#"
+                      class="ps-2 text-secondary text-white d-inline-flex text-decoration-none rounded"
+                      >Movimento Curvilíneo Uniforme</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      href="./MCUV.html"
+                      class="ps-2 text-secondary d-inline-flex text-decoration-none rounded"
+                      >Movimento Curvilíneo Uniformemente Variado</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      href="./LancamentoHorizontal.html"
+                      class="ps-2 text-secondary d-inline-flex text-decoration-none rounded"
+                      >Lançamento Horizontal</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      href="./LancamentoObliquo.html"
+                      class="ps-2 text-secondary d-inline-flex text-decoration-none rounded"
+                      >Lançamento Oblíquo</a
+                    >
+                  </li>
+                </ul>
+              </div>
+            </li>
+            <li class="mb-1">
+              <button
+                class="btn btn-toggle text-white d-inline-flex align-items-center rounded border-0 collapsed"
+                data-bs-toggle="collapse"
+                data-bs-target="#dynamics-collapse"
+                aria-expanded="true"
+              >
+                Dinâmica
+              </button>
+              <div class="collapse" id="dynamics-collapse">
+                <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+                  <li>
+                    <a
+                      href="/10-classe/dinamica/ForcaTensaoCordas&&LeisNewton/forcaTencao.html"
+                      class="ps-2 text-secondary d-inline-flex text-decoration-none rounded"
+                      >Força de Tensão em Cordas</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      href="/10-classe/dinamica/ForcaTensaoCordas&&LeisNewton/planoInclinado.html"
+                      class="ps-2 text-secondary d-inline-flex text-decoration-none rounded"
+                      >Plano Inclinado</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      href="/10-classe/dinamica/ForcaTensaoCordas&&LeisNewton/segundaLeiNewtoniana.html"
+                      class="ps-2 text-secondary d-inline-flex text-decoration-none rounded"
+                      >2ª Lei de Newton ou Lei de Causa e Efeito</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      href="/10-classe/dinamica/ForcaTensaoCordas&&LeisNewton/terceiraLeiNewton.html"
+                      class="ps-2 text-secondary d-inline-flex text-decoration-none rounded"
+                      >3ª Lei de Newton ou Lei de Ação e Reação</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      href="/10-classe/dinamica/ForcaTensaoCordas&&LeisNewton/tracaoComPolias.html"
+                      class="ps-2 text-secondary d-inline-flex text-decoration-none rounded"
+                      >Força de Tensão Com Polias</a
+                    >
+                  </li>
+                </ul>
+              </div>
+            </li>
+            <li class="mb-1">
+              <button
+                class="btn btn-toggle text-white d-inline-flex align-items-center rounded border-0 collapsed"
+                data-bs-toggle="collapse"
+                data-bs-target="#work-energy-collapse"
+                aria-expanded="true"
+              >
+                Trabalho e Energia
+              </button>
+              <div class="collapse" id="work-energy-collapse">
+                <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+                  <li>
+                    <a
+                      href="/10-classe/Trabalho e Energia/energiaCinética.html"
+                      class="ps-2 text-secondary d-inline-flex text-decoration-none rounded"
+                      >Energia Cinética</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      href="/10-classe/Trabalho e Energia/energiaPotencial.html"
+                      class="ps-2 text-secondary d-inline-flex text-decoration-none rounded"
+                      >Energia Potencial</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      href="/10-classe/Trabalho e Energia/energiaMecânica.html"
+                      class="ps-2 text-secondary d-inline-flex text-decoration-none rounded"
+                      >Energia Mecânica</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      href="/10-classe/Trabalho e Energia/energiaPotencialElastica.html"
+                      class="ps-2 text-secondary d-inline-flex text-decoration-none rounded"
+                      >Energia Potencial Elástica</a
+                    >
+                  </li>
+                </ul>
+              </div>
+            </li>
+            <li class="mb-1">
+              <button
+                class="btn btn-toggle text-white d-inline-flex align-items-center rounded border-0 collapsed"
+                data-bs-toggle="collapse"
+                data-bs-target="#statics-collapse"
+                aria-expanded="true"
+              >
+                Estática
+              </button>
+              <div class="collapse" id="statics-collapse">
+                <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+                  <li>
+                    <a
+                      href="/10-classe/estática/maquinasSimples.html"
+                      class="ps-2 text-secondary d-inline-flex text-decoration-none rounded"
+                      >Máquinas Simples</a
+                    >
+                  </li>
+                </ul>
+              </div>
+            </li>
+          </ul>
+        </div>
+
+        <div class="animation p-2">
+          <h1 class="fs-3 text-center pt-1">Movimento Circular Uniforme</h1>
+          <br />
+
+          <main class="bg-info main">
+            <button id="toggleFullscreen" class="resize-secreen">
+              Tela Cheia
+            </button>
+
+            <div class="display-variables">
+              <div class="angularVelocity" id="angularVelocity">
+                (velocidade Angular) ω = 0 (rad/s)
+              </div>
+              <div class="frequency" id="frequency">
+                (Frequência) f = 0 (Hz)
+              </div>
+            </div>
+
+            <div class="orbit">
+              <div class="earth"></div>
+              <div class="radius-fixed"></div>
+              <div class="trajectory">
+                <div class="radius-letter">r</div>
+                <div class="sattelite" id="sattelite">
+                  <div class="velocity-stick">
+                    <img
+                      src="/10-classe/dinamica/ForcaTensaoCordas&&LeisNewton/assets/forward.png"
+                      class="forward forward-velocity"
+                    />
+                    <div class="letter">
+                      <div class="arrow-letter">
+                        <img
+                          src="/10-classe/dinamica/ForcaTensaoCordas&&LeisNewton/assets/forward.png"
+                          class="forward forward-letter"
+                        />
+                      </div>
+                      v
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </main>
+
+          <div id="full-controllers" class="controllers d-flex m-3">
+            <fieldset class="d-flex align-items-center">
+              <label for="velocityValue">Velocidade</label>
+              <input
+                type="number"
+                id="velocityValue"
+                value="0"
+                class="form-control"
+              />
+            </fieldset>
+
+            <div class="buttons ms-2 d-flex pt-3">
+              <input
+                type="button"
+                value="Começar"
+                id="btnStart"
+                class="btn btn-success"
+                onclick="startSimulation()"
+              />
+              <input
+                type="button"
+                value="Pausar"
+                id="btnPause"
+                class="btn btn-secondary"
+                onclick="pauseSimulation()"
+              />
+              <input
+                type="button"
+                value="Reiniciar"
+                id="btnRestart"
+                class="btn btn-primary"
+                onclick="restartSimulation()"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="/main.js"></script>
+    <script src="/bootstrap-5.3.3-dist/js/bootstrap.js"></script>
+    <script>
+      var orbit = document.querySelector(".orbit");
+      var trajectory = document.querySelector(".trajectory");
+      var angularVelocity = document.querySelector("#angularVelocity");
+      var frequency = document.querySelector("#frequency");
+      var sattelite = document.querySelector("#sattelite");
+      var btnStart = document.querySelector("#btnStart");
+      var btnPause = document.querySelector("#btnPause");
+      var btnRestart = document.querySelector("#btnRestart");
+
+      var orbitRadius = orbit.offsetWidth / 2;
+      var angle = 0;
+      var completedTurns = 0;
+      var frames = 0;
+      var animationInterval = null;
+
+      trajectory.style.top = "100px";
+
+      let velocity = document.querySelector("#velocityValue");
+
+      function startAnimation() {
+        btnStart.disabled = true;
+        if (btnPause.disabled) {
+          btnPause.disabled = false;
+        }
+        // velocity.disabled = true;
+
+        var velocityValue = parseInt(velocity.value)
+          ? parseInt(velocity.value)
+          : 0;
+        const angularVelocityValue = velocityValue / orbitRadius;
+        var speed = angularVelocityValue; // Velocidade de rotação em radianos por segundo
+        if (speed < 0) {
+          sattelite.style.transform = "rotate(-315deg)";
+        } else {
+          sattelite.style.transform = "rotate(230deg)";
+        }
+        trajectory.style.left = "100px";
+        const angleValue = (angle * 180) / Math.PI;
+        trajectory.style.transform = "rotate(" + angleValue + "deg)";
+
+        frames = 0;
+
+        // Incrementar o contador de frames
+        frames++;
+
+        // Verificar se uma volta completa foi feita
+        if (angle >= 2 * Math.PI) {
+          // Incrementar o contador de voltas completas
+          completedTurns++;
+          // Reduzir o ângulo para garantir que ele permaneça dentro do intervalo de 0 a 2*pi
+          angle -= 2 * Math.PI;
+        }
+
+        // Calcular o tempo decorrido em segundos
+        var elapsedTime = frames / 60; // Assumindo 60 FPS
+
+        // Calcular a frequência (número de voltas completas por segundo)
+        var frequencyValue = completedTurns / elapsedTime;
+
+        // Atualizar o texto com a frequência
+        frequency.innerHTML = `(Frequência): f = ${
+          Math.floor(frequencyValue * 100) / 100
+        } Hz`;
+        angularVelocity.innerHTML = `(velocidade Angular) ω = ${angularVelocityValue.toFixed(
+          2
+        )} (rad/s)`;
+
+        angle += speed;
+      }
+
+      function startSimulation() {
+        if (animationInterval === null)
+          animationInterval = setInterval(startAnimation, 100);
+      }
+
+      function pauseSimulation() {
+        btnPause.disabled = true;
+        btnStart.disabled = false;
+        clearInterval(animationInterval); // Limpar o intervalo de animação
+      }
+
+      function restartSimulation() {
+        btnStart.disabled = false;
+        btnPause.disabled = false;
+        angle = 0;
+        completedTurns = 0;
+
+        if (animationInterval) {
+          clearInterval(animationInterval); // Limpar o intervalo de animação, se existir
+        }
+      }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Triângulo Retângulo Ajustável com Objeto</title>
+    <style>
+        .container {
+            position: relative;
+            width: 400px;
+            height: 400px;
+            margin: auto;
+            border: 1px solid black;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .triangle {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 0;
+            border-left: 200px solid transparent;
+            border-bottom: 200px solid blue;
+            transform-origin: bottom left;
+        }
+        .object {
+            position: absolute;
+            width: 30px;
+            height: 30px;
+            background-color: red;
+            transform-origin: center;
+        }
+        .controls {
+            text-align: center;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="triangle" id="triangle"></div>
+        <div class="object" id="object"></div>
+    </div>
+    <div class="controls">
+        <label for="angle">Ângulo: </label>
+        <input type="range" id="angle" min="0" max="90" value="45">
+        <span id="angleValue">45</span>°
+    </div>
+
+    <script>
+        const angleInput = document.getElementById('angle');
+        const angleValue = document.getElementById('angleValue');
+        const triangle = document.getElementById('triangle');
+        const object = document.getElementById('object');
+
+        function updateTriangle() {
+            const angle = angleInput.value;
+            angleValue.textContent = angle;
+            
+            // Calculate the new width and height based on the angle
+            const angleInRadians = angle * Math.PI / 180;
+            const base = 200 * Math.cos(angleInRadians);
+            const height = 200 * Math.sin(angleInRadians);
+            
+            triangle.style.borderLeftWidth = `${base}px`;
+            triangle.style.borderBottomWidth = `${height}px`;
+            
+            // Calculate the position of the object on the hypotenuse
+            const objectCenterX = base / 2;
+            const objectCenterY = height / 2;
+            const hypotenuseLength = Math.sqrt(base * base + height * height);
+            const objectDistance = hypotenuseLength / 2 - 15;  // Adjust to place the object in the center
+
+            // Position the object
+            const objectX = objectCenterX - objectDistance * Math.sin(angleInRadians);
+            const objectY = objectCenterY + objectDistance * Math.cos(angleInRadians);
+            object.style.transform = `translate(${objectX}px, ${-objectY}px) rotate(${-angle}deg)`;
+        }
+
+        angleInput.addEventListener('input', updateTriangle);
+        updateTriangle();  // Initial call to set the default state
+    </script>
+</body>
+</html>

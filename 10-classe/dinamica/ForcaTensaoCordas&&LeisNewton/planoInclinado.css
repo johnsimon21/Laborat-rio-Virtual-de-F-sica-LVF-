@@ -1,0 +1,76 @@
+.plane {
+    width: 533px;
+    /* height: 1px;
+    background-color: rgb(226, 43, 43); */
+    transform: rotateZ(19.8deg);
+
+    position: absolute;
+    bottom: -91px;
+    left: -16px;
+}
+
+.plane-base {
+    width: 0;
+    height: 0;
+
+    border-left: -100px solid transparent;
+    border-right: 500px solid transparent;
+    border-bottom: 180px solid rgb(131, 128, 126);
+
+    position: absolute;
+    bottom: 20px;
+    left: 100px;
+}
+
+.box {
+    background-image: url('/10-classe/dinamica/ForcaTensaoCordas&&LeisNewton/assets/box.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+
+    width: 80px;
+    height: 80px;
+
+    position: absolute;
+    top: -74.1px;
+    left: 0;
+}
+
+.normal-force-stick {
+    background-color: blueviolet;
+    width: 1.4px;
+    height: 100px;
+
+    position: absolute;
+    left: 40px;
+    bottom: 40px;
+}
+
+.forward-normal-force {
+    transform: rotateZ(-90deg);
+    left: -4px;
+}
+
+.force-stick {
+    background-color: blueviolet;
+    width: 100px;
+    height: 1.4px;
+
+    position: absolute;
+    top: 40px;
+    left: 40px;
+}
+
+.forward-force {
+    right: -4px;
+}
+
+.force-letter {
+    position: absolute;
+
+    top: -20px;
+    right: 4px;
+}
+
+.forward-letter {
+    right: -4px;
+}

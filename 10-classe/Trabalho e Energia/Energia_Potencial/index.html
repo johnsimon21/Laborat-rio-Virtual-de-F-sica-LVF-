@@ -1,0 +1,111 @@
+  <!DOCTYPE html>
+  <html lang="en">
+  <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Queda de um Corpo - Energia Potencial</title>
+  <style>
+    body {
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background-color: #f0f0f0;
+    }
+    canvas {
+      display: flex;
+      margin: auto;
+      margin-top: 10px;
+      border-top: 5px solid black;
+      border-bottom: 5px solid black;
+      border-left: 6px solid black;
+      border-right: none;
+    }
+    .controls {
+      margin-top: 20px;
+      text-align: center;
+    }
+  </style>
+  </head>
+  <body>
+  <canvas id="fallingObjectCanvas" width="400" height="400"></canvas>
+  <div class="controls">
+    <label for="initialHeight">Altura Inicial (m):</label>
+    <input type="number" id="initialHeight" value="50">
+    <br>
+    <label for="gravity">Aceleração da Gravidade (m/s²):</label>
+    <input type="number" id="gravity" value="9.8">
+    <br>
+    <label for="mass">Massa do Objeto (kg):</label>
+    <input type="number" id="mass" value="1">
+    <br>
+    <button onclick="startSimulation()">Iniciar</button>
+    <button onclick="stopSimulation()">Parar</button>
+    <button onclick="restartSimulation()">Reiniciar</button>
+  </div>
+  <script>
+    const canvas = document.getElementById('fallingObjectCanvas');
+    const ctx = canvas.getContext('2d');
+
+    const objectWidth = 30;
+    const objectHeight = 30;
+    let objectX = (canvas.width - objectWidth) / 1;
+    let objectY = 0; // Começa a partir do topo do canvas
+    let gravity = parseFloat(document.getElementById('gravity').value); // Aceleração da gravidade em m/s²
+    let mass = parseFloat(document.getElementById('mass').value); // Massa do objeto (em kg)
+    let velocity = 0; // Velocidade inicial do objeto
+    let time = 0; // Tempo decorrido
+    let intervalId;
+
+    function drawObject() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      ctx.fillStyle = 'blue';
+      ctx.fillRect(objectX, objectY, objectWidth, objectHeight);
+    }
+
+    function updateObjectPosition() {
+      // Calcula a altura do objeto usando a equação da cinemática
+      objectY = 0.5 * gravity * time * time;
+
+      // Atualiza o tempo
+      time += 0.1; // Incrementa o tempo em intervalos de 0.1 segundo
+
+      // Verifica se o objeto ultrapassou a borda inferior do canvas
+      if (objectY >= canvas.height - objectHeight) {
+        objectY = canvas.height - objectHeight; // Define a posição do objeto para a borda inferior
+        clearInterval(intervalId); // Para a simulação
+      }
+
+      // Redesenha o objeto
+      drawObject();
+
+      // Mostra a energia potencial gravitacional
+      const potentialEnergy = mass * gravity * objectY;
+      document.getElementById('potentialEnergy').innerText = `Energia Potencial Gravitacional: ${potentialEnergy.toFixed(2)} J`;
+    }
+
+    function startSimulation() {
+      clearInterval(intervalId); // Limpa qualquer animação anterior
+      intervalId = setInterval(updateObjectPosition, 100); // Inicia a simulação
+    }
+
+    function stopSimulation() {
+      clearInterval(intervalId); // Para a simulação
+    }
+
+    function restartSimulation() {
+      stopSimulation(); // Para a simulação
+      startSimulation() //reiniciar
+      time = 0; // Reseta o tempo
+      objectY = parseFloat(document.getElementById('initialHeight').value); // Reseta a altura inicial do objeto
+      drawObject(); // Redesenha o objeto
+      document.getElementById('potentialEnergy').innerText = 'Energia Potencial Gravitacional: 0 J'; // Reseta a energia potencial
+    }
+
+    // Atualiza a simulação quando os valores são alterados
+    document.getElementById('initialHeight').addEventListener('input', restartSimulation);
+    document.getElementById('gravity').addEventListener('input', restartSimulation);
+    document.getElementById('mass').addEventListener('input', restartSimulation);
+  </script>
+  <div id="potentialEnergy" class="controls" style="margin-top: 10px;"></div>
+  </body>
+  </html>

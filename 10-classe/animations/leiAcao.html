@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ação e Reação (Terceira Lei de Newton)</title>
+<style>
+    canvas {
+        border: 1px solid #000;
+    }
+</style>
+</head>
+<body>
+<canvas id="myCanvas" width="1500" height="200"></canvas>
+<div>
+    <label for="velocity1Input">Velocidade Objeto 1:</label>
+    <input type="number" id="velocity1Input" value="1">
+    <label for="mass1Input">Massa Objeto 1:</label>
+    <input type="number" id="mass1Input" value="1"><br>
+    <label for="velocity2Input">Velocidade Objeto 2:</label>
+    <input type="number" id="velocity2Input" value="-1">
+    <label for="mass2Input">Massa Objeto 2:</label>
+    <input type="number" id="mass2Input" value="1"><br>
+    <button id="startButton">Iniciar</button>
+    <button id="stopButton">Parar</button>
+    <button id="resetButton">Reiniciar</button>
+</div>
+<script>
+    // Definindo o canvas e seu contexto
+    const canvas = document.getElementById('myCanvas');
+    const ctx = canvas.getContext('2d');
+
+    // Definindo as propriedades dos objetos
+    let object1 = {
+        x: 100,
+        y: canvas.height / 2,
+        velocity: 1,
+        mass: 1
+    };
+
+    let object2 = {
+        x: 500,
+        y: canvas.height / 2,
+        velocity: -1,
+        mass: 1
+    };
+
+    // Função para desenhar os objetos
+    function drawObjects() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        
+        // Desenha objeto 1
+        ctx.beginPath();
+        ctx.arc(object1.x, object1.y, 20, 0, Math.PI * 2);
+        ctx.fillStyle = 'blue';
+        ctx.fill();
+        ctx.closePath();
+
+        // Desenha objeto 2
+        ctx.beginPath();
+        ctx.arc(object2.x, object2.y, 20, 0, Math.PI * 2);
+        ctx.fillStyle = 'red';
+        ctx.fill();
+        ctx.closePath();
+    }
+
+    // Função para atualizar as propriedades dos objetos com base nos inputs do usuário
+    function updateProperties() {
+        object1.velocity = parseFloat(document.getElementById('velocity1Input').value);
+        object1.mass = parseFloat(document.getElementById('mass1Input').value);
+        object2.velocity = parseFloat(document.getElementById('velocity2Input').value);
+        object2.mass = parseFloat(document.getElementById('mass2Input').value);
+    }
+
+    // Função para atualizar a posição dos objetos
+    function updateObjects() {
+        object1.x += object1.velocity;
+        object2.x += object2.velocity;
+
+        // Se os objetos colidirem, eles mudam de direção (reação)
+        if (object1.x + 20 >= object2.x - 20 || object2.x + 20 <= object1.x + 20) {
+            object1.velocity *= -1;
+            object2.velocity *= -1;
+        }
+    }
+
+    // Função de animação
+    let animationId;
+    function animate() {
+        updateObjects();
+        drawObjects();
+        animationId = requestAnimationFrame(animate);
+    }
+
+    // Event listener para o botão Iniciar
+    document.getElementById('startButton').addEventListener('click', function() {
+        cancelAnimationFrame(animationId);
+        updateProperties(); // Atualiza as propriedades dos objetos antes de iniciar a animação
+        animate();
+    });
+
+    // Event listener para o botão Parar
+    document.getElementById('stopButton').addEventListener('click', function() {
+        cancelAnimationFrame(animationId);
+    });
+
+    // Event listener para o botão Reiniciar
+    document.getElementById('resetButton').addEventListener('click', function() {
+        cancelAnimationFrame(animationId);
+        object1.x = 100;
+        object2.x = 500;
+        object1.velocity = 1;
+        object2.velocity = -1;
+        drawObjects();
+    });
+</script>
+</body>
+</html>

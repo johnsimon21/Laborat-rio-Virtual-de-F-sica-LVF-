@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Força e Aceleração</title>
+<style>
+    canvas {
+        border: 1px solid #000;
+    }
+</style>
+</head>
+<body>
+  <h1>Força e Aceleração</h1>
+<div>
+    <label for="mass">Massa do Objeto:</label>
+    <input type="number" id="mass" value="1">
+</div>
+<div>
+    <label for="force">Força Aplicada:</label>
+    <input type="number" id="force" value="0">
+</div>
+<div>
+    <label for="friction">Coeficiente de Atrito:</label>
+    <input type="number" id="friction" value="0.1" step="0.01">
+</div>
+<div>
+    <button id="startButton">Iniciar Movimento</button>
+    <button id="stopButton">Parar Movimento</button>
+    <button id="restartButton">Reiniciar</button>
+</div>
+<canvas id="myCanvas" width="1400" height="200"></canvas>
+<script>
+    // Definindo o canvas e seu contexto
+    const canvas = document.getElementById('myCanvas');
+    const ctx = canvas.getContext('2d');
+
+    // Definindo as dimensões do objeto
+    const objectWidth = 30;
+    const objectHeight = 30;
+
+    // Definindo as propriedades do objeto
+    const object = {
+        x: 50,
+        y: canvas.height - objectHeight,
+        velocity: 0,
+        acceleration: 0,
+        mass: parseFloat(document.getElementById('mass').value),
+        friction: parseFloat(document.getElementById('friction').value),
+        force: parseFloat(document.getElementById('force').value),
+        isMoving: false
+    };
+
+    // Função para desenhar o objeto
+    function drawObject() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        ctx.beginPath();
+        ctx.rect(object.x, object.y, objectWidth, objectHeight);
+        ctx.fillStyle = 'blue';
+        ctx.fill();
+        ctx.closePath();
+    }
+
+    // Função para atualizar a posição e a velocidade do objeto
+    function updateObject() {
+        object.acceleration = object.force / object.mass;
+        object.velocity += object.acceleration;
+        object.velocity *= (1 - object.friction); // Aplicando atrito
+        object.x += object.velocity;
+
+        // Limitando o objeto dentro do canvas
+        if (object.x < 0) {
+            object.x = 0;
+            object.velocity = 0;
+        }
+        if (object.x + objectWidth > canvas.width) {
+            object.x = canvas.width - objectWidth;
+            object.velocity = 0;
+        }
+    }
+
+    // Função de animação
+    function animate() {
+        if (object.isMoving) {
+            updateObject();
+            drawObject();
+            requestAnimationFrame(animate);
+        }
+    }
+
+    // Evento de clique do botão para iniciar o movimento
+    document.getElementById('startButton').addEventListener('click', function() {
+        object.isMoving = true;
+        animate();
+    });
+
+    // Evento de clique do botão para parar o movimento
+    document.getElementById('stopButton').addEventListener('click', function() {
+        object.isMoving = false;
+    });
+
+    // Evento de clique do botão para reiniciar a animação
+    document.getElementById('restartButton').addEventListener('click', function() {
+        object.x = 50;
+        object.velocity = 0;
+        object.isMoving = false;
+        drawObject();
+    });
+
+    // Evento de atualização quando os inputs são modificados
+    document.getElementById('mass').addEventListener('input', function(event) {
+        object.mass = parseFloat(event.target.value);
+    });
+
+    document.getElementById('force').addEventListener('input', function(event) {
+        object.force = parseFloat(event.target.value);
+    });
+
+    document.getElementById('friction').addEventListener('input', function(event) {
+        object.friction = parseFloat(event.target.value);
+    });
+</script>
+</body>
+</html>

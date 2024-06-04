@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ruler</title>
+  </head>
+  <style>
+    body {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+
+      margin: 0;
+
+      height: 100vh;
+      width: 100%;
+    }
+    main {
+      width: 400px;
+      height: 400px;
+      position: relative;
+      margin-inline: auto;
+    }
+
+    :root {
+      --height: 100%;
+      --x-position: -100%;
+    }
+
+    .animation-screen {
+      background-color: #fff !important;
+
+      padding: 30px;
+
+      min-width: fit-content;
+      height: var(--height);
+    }
+
+    div.cartesian-plane {
+      width: 100%;
+      height: 100%;
+
+      position: absolute;
+      bottom: 0;
+      left: 0;
+    }
+
+    .x-axis-body {
+      width: 100%;
+      height: 0;
+      position: absolute;
+      bottom: var(--x-position);
+      left: 0;
+      bottom: 0;
+    }
+
+    .y-axis-body {
+      max-width: 100%;
+      height: 100%;
+      position: absolute;
+      bottom: 0;
+    }
+
+    .ruler-x {
+      width: 100%;
+      height: 0;
+      border-bottom: 2px solid #0e0e0e;
+      position: relative;
+    }
+
+    .ruler-y {
+      display: flex;
+      flex-direction: column;
+      border-right: 2px solid #0e0e0e;
+      width: 4px;
+      height: 100%;
+      position: relative;
+      left: -4px;
+    }
+
+    .mark {
+      position: absolute;
+      height: 10px;
+      width: 1px;
+    }
+
+    .number {
+      position: absolute;
+      bottom: -20px;
+      font-size: 12px;
+      color: #666;
+      transform: translateX(-50%);
+    }
+
+    .ruler-y .number {
+      right: 5px;
+    }
+
+    .ruler-y .mark {
+      width: 10px;
+      height: 1px;
+    }
+  </style>
+  <body>
+    <!-- Cara, main "father" pode ser um elemento qualquer em que o plano cartesiano "cartesian-plane" vai se ajustar de acordo com a sua largura e altura caso tenha position relative -->
+    <main class="father">
+    
+      <div class="cartesian-plane">
+        <div class="y-axis-body">
+          <div class="ruler-y"></div>
+        </div>
+
+        <div class="x-axis-body">
+          <div class="ruler-x"></div>
+        </div>
+      </div>
+    </main>
+
+    <script>
+      function buildRulerX(axis, markSpacing) {
+        const ruler = document.querySelector(axis);
+        const lastPostion = 100;
+        const startPosition = 0;
+
+        for (let index = startPosition; index <= lastPostion; index++) {
+          const mark = document.createElement("div");
+          mark.className = "mark";
+          mark.style.left = `${index}%`;
+
+          if (index % markSpacing === 0) mark.style.backgroundColor = "black";
+
+          ruler.appendChild(mark);
+
+          const number = document.createElement("div");
+          number.className = "number";
+          number.style.left = `${index}%`;
+          if (index === 0) {
+            number.style.left = "-10px";
+            number.style.top = "4px";
+          }
+
+          number.textContent = `${
+            index === 0 || index % markSpacing === 0 ? index : ""
+          }`;
+
+          ruler.appendChild(number);
+        }
+      }
+
+      function buildRulerY(axis, markSpacing) {
+        const ruler = document.querySelector(axis);
+        const lastPostion = 0;
+        const startPosition = 100;
+        let position = 0;
+
+        for (let index = startPosition; index >= lastPostion; index--) {
+          const mark = document.createElement("div");
+          mark.className = "mark";
+          mark.style.top = `${index}%`;
+
+          if (index % markSpacing === 0) mark.style.backgroundColor = "black";
+
+          ruler.appendChild(mark);
+
+          const number = document.createElement("div");
+          number.className = "number";
+          number.style.top = `${index - 1.5}%`;
+          number.textContent = `${
+            position !== 0 && position % markSpacing === 0 ? position : ""
+          }`;
+
+          position++;
+          ruler.appendChild(number);
+        }
+      }
+
+      buildRulerX(".ruler-x", 5);
+      buildRulerY(".ruler-y", 5);
+    </script>
+  </body>
+</html>

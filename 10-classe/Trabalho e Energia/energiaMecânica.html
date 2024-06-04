@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Energia Mecânica</title>
+    <link rel="stylesheet" href="/index.css" />
+    <link rel="stylesheet" href="./energiaMecânica.css" />
+    <link rel="stylesheet" href="/bootstrap-5.3.3-dist/css/bootstrap.css" />
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <!-- Adicionei Chart.js -->
+  </head>
+  <body>
+    <div class="container-fluid p-0">
+      <header
+        id="nav"
+        class="d-flex flex-wrap justify-content-center bg-black py-3"
+      >
+        <a
+          href="#"
+          class="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-body-emphasis text-decoration-none"
+        >
+          <svg class="bi me-2" width="40" height="32">
+            <use xlink:href="#bootstrap"></use>
+          </svg>
+          <span class="fs-4 text-white">Laboratório Virtual de Física</span>
+        </a>
+
+        <ul class="nav nav-pills">
+          <li class="nav-item">
+            <a href="#" class="nav-link text-white" aria-current="page">Home</a>
+          </li>
+          <li class="nav-item">
+            <a href="#" class="nav-link active">Simulações</a>
+          </li>
+          <li class="nav-item me-5">
+            <a href="#" class="nav-link text-white">Sobre</a>
+          </li>
+        </ul>
+      </header>
+
+      <div class="content flex h-70 scroll-auto">
+        <div class="flex-shrink-0 p-3 bg-black fixed-left" style="width: 280px">
+          <a
+            href="#"
+            class="d-flex align-items-center pb-3 mb-3 text-white text-decoration-none border-bottom"
+          >
+            <svg class="bi pe-none me-2" width="30" height="24">
+              <use xlink:href="#bootstrap"></use>
+            </svg>
+            <span class="fs-5 fw-semibold">10ª Classe</span>
+          </a>
+          <ul class="list-unstyled ps-0">
+            <li class="mb-1">
+              <button
+                class="btn btn-toggle text-white d-inline-flex align-items-center rounded border-0 collapsed"
+                data-bs-toggle="collapse"
+                data-bs-target="#home-collapse"
+                aria-expanded="true"
+              >
+                Cinemática
+              </button>
+              <div class="collapse" id="home-collapse">
+                <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+                  <li>
+                    <a
+                      href="/10-classe/cinematica/MRU.html"
+                      class="ps-2 text-secondary d-inline-flex text-decoration-none rounded"
+                      >Movimento Retilíneo Uniforme</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      href="/10-classe/cinematica/V.html"
+                      class="ps-2 text-secondary d-inline-flex text-decoration-none rounded"
+                      >Movimento Retilíneo Uniformemente Variado</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      href="/10-classe/cinematica/MCU.html"
+                      class="ps-2 text-secondary d-inline-flex text-decoration-none rounded"
+                      >Movimento Curvilíneo Uniforme</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      href="/10-classe/cinematica/MCUV.html"
+                      class="ps-2 text-secondary d-inline-flex text-decoration-none rounded"
+                      >Movimento Curvilíneo Uniformemente Variado</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      href="/10-classe/cinematica/LancamentoHorizontal.html"
+                      class="ps-2 text-secondary d-inline-flex text-decoration-none rounded"
+                      >Lançamento Horizontal</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      href="/10-classe/cinematica/LancamentoObliquo.html"
+                      class="ps-2 text-secondary d-inline-flex text-decoration-none rounded"
+                      >Lançamento Oblíquo</a
+                    >
+                  </li>
+                </ul>
+              </div>
+            </li>
+            <li class="mb-1">
+              <button
+                class="btn btn-toggle text-white d-inline-flex align-items-center rounded border-0 collapsed"
+                data-bs-toggle="collapse"
+                data-bs-target="#dynamics-collapse"
+                aria-expanded="true"
+              >
+                Dinâmica
+              </button>
+              <div class="collapse" id="dynamics-collapse">
+                <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+                  <li>
+                    <a
+                      href="/10-classe/dinamica/ForcaTensaoCordas&&LeisNewton/forcaTencao.html"
+                      class="ps-2 text-secondary d-inline-flex text-decoration-none rounded"
+                      >Força de Tensão em Cordas</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      href="/10-classe/dinamica/ForcaTensaoCordas&&LeisNewton/planoInclinado.html"
+                      class="ps-2 text-secondary d-inline-flex text-decoration-none rounded"
+                      >Plano Inclinado</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      href="/10-classe/dinamica/ForcaTensaoCordas&&LeisNewton/segundaLeiNewtoniana.html"
+                      class="ps-2 text-secondary d-inline-flex text-decoration-none rounded"
+                      >2ª Lei de Newton ou Lei de Causa e Efeito</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      href="/10-classe/dinamica/ForcaTensaoCordas&&LeisNewton/terceiraLeiNewton.html"
+                      class="ps-2 text-secondary d-inline-flex text-decoration-none rounded"
+                      >3ª Lei de Newton ou Lei de Ação e Reação</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      href="/10-classe/dinamica/ForcaTensaoCordas&&LeisNewton/tracaoComPolias.html"
+                      class="ps-2 text-white d-inline-flex text-decoration-none rounded"
+                      >Força de Tensão Com Polias</a
+                    >
+                  </li>
+                </ul>
+              </div>
+            </li>
+            <li class="mb-1">
+              <button
+                class="btn btn-toggle text-white d-inline-flex align-items-center rounded border-0 collapsed"
+                data-bs-toggle="collapse"
+                data-bs-target="#work-energy-collapse"
+                aria-expanded="true"
+              >
+                Trabalho e Energia
+              </button>
+              <div class="collapse show" id="work-energy-collapse">
+                <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+                  <li>
+                    <a
+                      href="./energiaCinética.html"
+                      class="ps-2 text-secondary d-inline-flex text-decoration-none rounded"
+                      >Energia Cinética</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      href="./energiaPotencial.html"
+                      class="ps-2 text-secondary d-inline-flex text-decoration-none rounded"
+                      >Energia Potencial</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      href="#"
+                      class="ps-2 text-white d-inline-flex text-decoration-none rounded"
+                      >Energia Mecânica</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      href="./energiaPotencialElastica.html"
+                      class="ps-2 text-secondary d-inline-flex text-decoration-none rounded"
+                      >Energia Potencial Elástica</a
+                    >
+                  </li>
+                </ul>
+              </div>
+            </li>
+            <li class="mb-1">
+              <button
+                class="btn btn-toggle text-white d-inline-flex align-items-center rounded border-0 collapsed"
+                data-bs-toggle="collapse"
+                data-bs-target="#statics-collapse"
+                aria-expanded="true"
+              >
+                Estática
+              </button>
+              <div class="collapse" id="statics-collapse">
+                <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+                  <li>
+                    <a
+                      href="/10-classe/estática/maquinasSimples.html"
+                      class="ps-2 text-secondary d-inline-flex text-decoration-none rounded"
+                      >Máquinas Simples</a
+                    >
+                  </li>
+                </ul>
+              </div>
+            </li>
+          </ul>
+        </div>
+
+        <div class="animation p-2">
+          <div class="animation-cene">
+            <h1 class="fs-3 text-center pt-1">Energia Mecânica</h1>
+
+            <main class="bg-info main">
+              <button id="toggleFullscreen" class="resize-secreen">
+                Tela Cheia
+              </button>
+
+              <div class="display-variables">
+                <div class="timeValue">Tempo = 0 (s)</div>
+                <div class="finalVelocityValue">Velocidade = 0 (m/s)</div>
+                <div class="potentialEnergyValue">
+                  Energia Potencial <strong>E<sub>p</sub></strong> = 0 (J)
+                </div>
+                <br />
+                <div class="kineticEnergyValue">
+                  Energia Cinética <strong>E<sub>c</sub></strong> = 0 (J)
+                </div>
+                <div class="mechanicEnergyValue">
+                  Energia Mecânoa <strong>E<sub>m</sub></strong> = 0 (J)
+                </div>
+              </div>
+
+              <div class="ball">
+                <div class="mass">m</div>
+                <div class="ball-position"></div>
+                <div class="ball-arrow">
+                  <div class="finalVelocity">v<sub>f</sub></div>
+                </div>
+              </div>
+              <div class="base">
+                <div class="height-stick">
+                  <div class="initialVelocity">v<sub>o</sub> = 0</div>
+                  <div class="height-letter">h</div>
+                </div>
+              </div>
+            </main>
+
+            <div id="full-controllers" class="controllers d-flex m-3">
+              <fieldset class="d-flex align-items-center">
+                <label for="ball-height">Altura (m)</label>
+                <input
+                  type="number"
+                  class="form-control"
+                  required
+                  id="ball-height"
+                  value="350"
+                  min="0"
+                  max="350"
+                />
+              </fieldset>
+              <fieldset class="d-flex align-items-center">
+                <label for="ball-weight">Massa (kg)</label>
+                <input
+                  type="number"
+                  class="form-control"
+                  required
+                  id="ball-weight"
+                  value="4"
+                />
+              </fieldset>
+
+              <div class="buttons ms-2 d-flex pt-3">
+                <input
+                  type="button"
+                  value="Iniciar"
+                  id="btnStart"
+                  class="btn btn-success"
+                  onclick="startSimulation()"
+                />
+
+                <input
+                  type="button"
+                  value="Pausar"
+                  id="btnPause"
+                  class="btn btn-secondary"
+                  onclick="pauseSimulation()"
+                />
+
+                <input
+                  type="button"
+                  value="Reiniciar"
+                  id="btnRestart"
+                  class="btn btn-primary"
+                  onclick="restartSimulation()"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="/main.js"></script>
+    <script src="/bootstrap-5.3.3-dist/js/bootstrap.js"></script>
+    <script>
+      let ball = document.querySelector(".ball");
+      let timeElement = document.querySelector(".timeValue");
+      let finalVelocityElement = document.querySelector(".finalVelocityValue");
+      let potentialEnergyElement = document.querySelector(
+        ".potentialEnergyValue"
+      );
+      let kineticEnergyElement = document.querySelector(".kineticEnergyValue");
+      let mechanicEnergyElement = document.querySelector(
+        ".mechanicEnergyValue"
+      );
+      let base = document.querySelector(".base");
+      let mass = document.querySelector("#ball-weight");
+      let ballHeight = document.querySelector("#ball-height");
+      let heightStick = document.querySelector(".height-stick");
+
+      let time = 0;
+      let timeValue = 0;
+      let interval = null;
+      let intervalStarted = false;
+
+      function updateBallHeight() {
+        let heightValue = parseInt(
+          document.querySelector("#ball-height").value
+        );
+        const maxHeight = 350;
+
+        if (heightValue < 20) {
+          heightValue = 20;
+        } else if (heightValue - 20 >= maxHeight) {
+          heightValue = maxHeight;
+        }
+
+        ball.style.bottom = `${heightValue}px`;
+        getBallHeight();
+
+        return heightValue;
+      }
+
+      ballHeight.addEventListener("input", () => {
+        restartSimulation();
+        updateBallHeight();
+        updatePotencialEnergy();
+      });
+
+      function getBallHeight() {
+        let ballRect = ball.getBoundingClientRect();
+        let baseRect = base.getBoundingClientRect();
+
+        // Altura da bola em relação ao topo da janela
+        let ballTop = ballRect.top + ballRect.height / 2;
+        // Altura da base em relação ao topo da janela
+        let baseTop = baseRect.top + baseRect.height;
+
+        // Altura da bola em relação à base
+        let ballHeightToBase = baseTop - ballTop;
+
+        heightStick.style.height = ballHeightToBase - 20 + "px";
+
+        return ballHeightToBase;
+      }
+
+      getBallHeight();
+
+      let newHeightLess =
+        parseInt(document.querySelector("#ball-weight").value) * 2;
+      let newHeight = updateBallHeight();
+
+      mass.addEventListener("input", () => {
+        newHeightLess =
+          parseInt(document.querySelector("#ball-weight").value) * 2;
+        restartSimulation();
+
+        updatePotencialEnergy();
+      });
+
+      function updatePotencialEnergy() {
+        let potentialEnergyResult =
+          parseInt(mass.value) * 9.8 * parseInt(ballHeight.value);
+
+        if (newHeight === 20) {
+          potentialEnergyResult = 0;
+        }
+
+        potentialEnergyElement.innerHTML = `Energia Potencial Ep = ${potentialEnergyResult.toFixed(
+          1
+        )} (J)`;
+      }
+
+      updatePotencialEnergy();
+
+      function startSimulation() {
+        time = newHeightLess;
+        let actualHeight = 0;
+        if (!intervalStarted) {
+          interval = setInterval(() => {
+            time += 1;
+
+            if (parseInt(mass.value) === 0) {
+              clearInterval(interval);
+              ball.classList.remove("dropping");
+            }
+
+            if (newHeight > 20) {
+              newHeight -= time;
+              if (newHeight < 20) {
+                newHeight = 20;
+                const finalVelocityResult = Math.pow(
+                  2 * 9.8 * (actualHeight += time),
+                  0.5
+                ).toFixed(1);
+                finalVelocityElement.innerHTML = `Velocidade = ${finalVelocityResult} (m/s)`;
+                const potentialEnergyResult = parseInt(mass.value) * 9.8 * 0;
+                potentialEnergyElement.innerHTML = `Energia Potencial Ep = ${potentialEnergyResult.toFixed(
+                  1
+                )} (J)`;
+
+                const kineicEnergyResult =
+                  (finalVelocityResult *
+                    finalVelocityResult *
+                    parseInt(mass.value)) /
+                  2;
+                kineticEnergyElement.innerHTML = `Energia Cinética Ec = ${kineicEnergyResult.toFixed(
+                  1
+                )} (J)`;
+
+                const mechanicEnergyResult =
+                  potentialEnergyResult + kineicEnergyResult;
+                mechanicEnergyElement.innerHTML = `Energia Mecânica Ec = ${mechanicEnergyResult.toFixed(
+                  1
+                )} (J)`;
+              }
+
+              if (timeValue > 5) {
+                ball.classList.add("dropping");
+              }
+
+              const finalVelocityResult = Math.pow(
+                2 * 9.8 * (actualHeight += time),
+                0.5
+              ).toFixed(1);
+              finalVelocityElement.innerHTML = `Velocidade = ${finalVelocityResult} (m/s)`;
+              let potentialEnergyResult =
+                parseInt(mass.value) * 9.8 * newHeight;
+
+              if (newHeight === 20) {
+                potentialEnergyResult = 0;
+              }
+
+              potentialEnergyElement.innerHTML = `Energia Potencial Ep = ${potentialEnergyResult.toFixed(
+                1
+              )} (J)`;
+
+              const kineicEnergyResult =
+                (finalVelocityResult *
+                  finalVelocityResult *
+                  parseInt(mass.value)) /
+                2;
+              kineticEnergyElement.innerHTML = `Energia Cinética Ec = ${kineicEnergyResult.toFixed(
+                1
+              )} (J)`;
+
+              const mechanicEnergyResult =
+                potentialEnergyResult + kineicEnergyResult;
+              mechanicEnergyElement.innerHTML = `Energia Mecânica Ec = ${mechanicEnergyResult.toFixed(
+                1
+              )} (J)`;
+
+              timeElement.innerHTML = `Tempo = ${timeValue++} (s)`;
+              ball.style.bottom = `${newHeight}px`;
+            } else {
+              clearInterval(interval);
+              ball.classList.remove("dropping");
+            }
+
+            intervalStarted = true;
+          }, 100);
+        }
+      }
+
+      function pauseSimulation() {
+        clearInterval(interval);
+        ball.classList.remove("dropping");
+        intervalStarted = false;
+      }
+
+      function restartSimulation() {
+        clearInterval(interval);
+        ball.classList.remove("dropping");
+        timeElement.innerHTML = `Tempo = 0 (s)`;
+        finalVelocityElement.innerHTML = `Velocidade = 0 (m/s)`;
+        potentialEnergyElement.innerHTML = `Energia Potencial = 0 (J)`;
+        kineticEnergyElement.innerHTML = `Energia Cinética Ec = 0 (J)`;
+        mechanicEnergyElement.innerHTML = `Energia Mecânica Em = 0 (J)`;
+        time = 0;
+        timeValue = 0;
+        newHeight = updateBallHeight();
+        updateBallHeight();
+        intervalStarted = false;
+      }
+    </script>
+  </body>
+</html>

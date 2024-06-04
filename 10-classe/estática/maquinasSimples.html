@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Máquinas Simples</title>
+    <link rel="stylesheet" href="/index.css" />
+    <link rel="stylesheet" href="./maquinasSimples.css" />
+    <link rel="stylesheet" href="/bootstrap-5.3.3-dist/css/bootstrap.css" />
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <!-- Adicionei Chart.js -->
+  </head>
+  <body>
+    <div class="container-fluid p-0">
+      <header
+        id="nav"
+        class="d-flex flex-wrap justify-content-center bg-black py-3"
+      >
+        <a
+          href="#"
+          class="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-body-emphasis text-decoration-none"
+        >
+          <svg class="bi me-2" width="40" height="32">
+            <use xlink:href="#bootstrap"></use>
+          </svg>
+          <span class="fs-4 text-white">Laboratório Virtual de Física</span>
+        </a>
+
+        <ul class="nav nav-pills">
+          <li class="nav-item">
+            <a href="#" class="nav-link text-white" aria-current="page">Home</a>
+          </li>
+          <li class="nav-item">
+            <a href="#" class="nav-link active">Simulações</a>
+          </li>
+          <li class="nav-item me-5">
+            <a href="#" class="nav-link text-white">Sobre</a>
+          </li>
+        </ul>
+      </header>
+
+      <div class="content flex h-70 scroll-auto">
+        <div class="flex-shrink-0 p-3 bg-black fixed-left" style="width: 280px">
+          <a
+            href="#"
+            class="d-flex align-items-center pb-3 mb-3 text-white text-decoration-none border-bottom"
+          >
+            <svg class="bi pe-none me-2" width="30" height="24">
+              <use xlink:href="#bootstrap"></use>
+            </svg>
+            <span class="fs-5 fw-semibold">10ª Classe</span>
+          </a>
+          <ul class="list-unstyled ps-0">
+            <li class="mb-1">
+              <button
+                class="btn btn-toggle text-white d-inline-flex align-items-center rounded border-0 collapsed"
+                data-bs-toggle="collapse"
+                data-bs-target="#home-collapse"
+                aria-expanded="true"
+              >
+                Cinemática
+              </button>
+              <div class="collapse" id="home-collapse">
+                <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+                  <li>
+                    <a
+                      href="/10-classe/cinematica/MRU.html"
+                      class="ps-2 text-secondary d-inline-flex text-decoration-none rounded"
+                      >Movimento Retilíneo Uniforme</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      href="/10-classe/cinematica/MRUV.html"
+                      class="ps-2 text-secondary d-inline-flex text-decoration-none rounded"
+                      >Movimento Retilíneo Uniformemente Variado</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      href="/10-classe/cinematica/MCU.html"
+                      class="ps-2 text-secondary d-inline-flex text-decoration-none rounded"
+                      >Movimento Curvilíneo Uniforme</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      href="/10-classe/cinematica/MCUV.html"
+                      class="ps-2 text-secondary d-inline-flex text-decoration-none rounded"
+                      >Movimento Curvilíneo Uniformemente Variado</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      href="/10-classe/cinematica/LancamentoHorizontal.html"
+                      class="ps-2 text-secondary d-inline-flex text-decoration-none rounded"
+                      >Lançamento Horizontal</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      href="/10-classe/cinematica/LancamentoObliquo.html"
+                      class="ps-2 text-secondary d-inline-flex text-decoration-none rounded"
+                      >Lançamento Oblíquo</a
+                    >
+                  </li>
+                </ul>
+              </div>
+            </li>
+            <li class="mb-1">
+              <button
+                class="btn btn-toggle text-white d-inline-flex align-items-center rounded border-0 collapsed"
+                data-bs-toggle="collapse"
+                data-bs-target="#dynamics-collapse"
+                aria-expanded="true"
+              >
+                Dinâmica
+              </button>
+              <div class="collapse" id="dynamics-collapse">
+                <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+                  <li>
+                    <a
+                      href="/10-classe/dinamica/ForcaTensaoCordas&&LeisNewton/forcaTencao.html"
+                      class="ps-2 text-secondary d-inline-flex text-decoration-none rounded"
+                      >Força de Tensão em Cordas</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      href="/10-classe/dinamica/ForcaTensaoCordas&&LeisNewton/planoInclinado.html"
+                      class="ps-2 text-secondary d-inline-flex text-decoration-none rounded"
+                      >Plano Inclinado</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      href="/10-classe/dinamica/ForcaTensaoCordas&&LeisNewton/segundaLeiNewtoniana.html"
+                      class="ps-2 text-secondary d-inline-flex text-decoration-none rounded"
+                      >2ª Lei de Newton ou Lei de Causa e Efeito</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      href="/10-classe/dinamica/ForcaTensaoCordas&&LeisNewton/terceiraLeiNewton.html"
+                      class="ps-2 text-secondary d-inline-flex text-decoration-none rounded"
+                      >3ª Lei de Newton ou Lei de Ação e Reação</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      href="/10-classe/dinamica/ForcaTensaoCordas&&LeisNewton/tracaoComPolias.html"
+                      class="ps-2 text-white d-inline-flex text-decoration-none rounded"
+                      >Força de Tensão Com Polias</a
+                    >
+                  </li>
+                </ul>
+              </div>
+            </li>
+            <li class="mb-1">
+              <button
+                class="btn btn-toggle text-white d-inline-flex align-items-center rounded border-0 collapsed"
+                data-bs-toggle="collapse"
+                data-bs-target="#work-energy-collapse"
+                aria-expanded="true"
+              >
+                Trabalho e Energia
+              </button>
+              <div class="collapse" id="work-energy-collapse">
+                <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+                  <li>
+                    <a
+                      href="/10-classe/Trabalho e Energia/energiaCinética.html"
+                      class="ps-2 text-secondary d-inline-flex text-decoration-none rounded"
+                      >Energia Cinética</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      href="/10-classe/Trabalho e Energia/energiaPotencial.html"
+                      class="ps-2 text-secondary d-inline-flex text-decoration-none rounded"
+                      >Energia Potencial</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      href="/10-classe/Trabalho e Energia/energiaMecânica.html"
+                      class="ps-2 text-secondary d-inline-flex text-decoration-none rounded"
+                      >Energia Mecânica</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      href="/10-classe/Trabalho e Energia/energiaPotencialElastica.html"
+                      class="ps-2 text-secondary d-inline-flex text-decoration-none rounded"
+                      >Energia Potencial Elástica</a
+                    >
+                  </li>
+                </ul>
+              </div>
+            </li>
+            <li class="mb-1">
+              <button
+                class="btn btn-toggle text-white d-inline-flex align-items-center rounded border-0 collapsed"
+                data-bs-toggle="collapse"
+                data-bs-target="#statics-collapse"
+                aria-expanded="true"
+              >
+                Estática
+              </button>
+              <div class="collapse show" id="statics-collapse">
+                <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+                  <li>
+                    <a
+                      href="#"
+                      class="ps-2 text-white d-inline-flex text-decoration-none rounded"
+                      >Máquinas Simples</a
+                    >
+                  </li>
+                </ul>
+              </div>
+            </li>
+          </ul>
+        </div>
+
+        <div class="animation p-2">
+          <div class="animation-cene">
+            <h1 class="fs-3 text-center pt-1">Energia Potencial Elástica</h1>
+
+            <main class="center bg-info main">
+              <button id="toggleFullscreen" class="resize-secreen">
+                Tela Cheia
+              </button>
+
+              <div class="fulcrum">
+                <div class="lever">
+                  <div class="dp">dp</div>
+                  <div class="dr">dr</div>
+                  <div class="appliedForce-arrow">
+                    <div class="force-letter">F</div>
+                    <div class="appliedForce-letter">FP</div>
+                  </div>
+                  <div class="resultForce">
+                    <div class="weightForce"></div>
+                  </div>
+                </div>
+
+                <span class="fulcrum-text">Ponto de Apoio</span>
+              </div>
+              <div class="base"></div>
+            </main>
+
+            <div
+              id="full-controllers"
+              class="controllers inputDatas d-flex m-3"
+            >
+              <fieldset class="d-flex align-items-center">
+                <label for="force">Força Aplicada (N)</label>
+                <input
+                  type="number"
+                  class="form-control"
+                  id="force"
+                  value="0"
+                />
+              </fieldset>
+              <fieldset class="d-flex align-items-center">
+                <label for="resultForceValue">Força Resultante (N)</label>
+                <input
+                  type="number"
+                  class="form-control"
+                  id="resultForceValue"
+                  value="200"
+                />
+              </fieldset>
+              <fieldset class="d-flex align-items-center">
+                <label for="distanceAF">Distância da Força Aplicada (cm)</label>
+                <input
+                  type="number"
+                  id="distanceAF"
+                  value="299"
+                  class="form-control"
+                  min="0"
+                  max="299"
+                />
+              </fieldset>
+              <fieldset class="display-none">
+                <label for="distanceRF"
+                  >Distância da Força Resultante (cm)</label
+                >
+                <input
+                  type="number"
+                  id="distanceRF"
+                  value="250"
+                  class="form-control"
+                  min="0"
+                  max="250"
+                />
+              </fieldset>
+
+              <div class="buttons ms-2 d-flex pt-3">
+                <input
+                  type="button"
+                  value="Aplicar"
+                  class="btn btn-success"
+                  id="btnStart"
+                  onclick="applyForce()"
+                />
+
+                <input
+                  type="button"
+                  value="Soltar"
+                  class="btn btn-primary"
+                  id="btnLeft"
+                  onclick="restartSimulation()"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="/main.js"></script>
+    <script src="/bootstrap-5.3.3-dist/js/bootstrap.js"></script>
+
+    <script>
+      let lever = document.querySelector(".lever");
+      let appliedForceArrow = document.querySelector(".appliedForce-arrow");
+      let appliedForce = document.querySelector("#force");
+      let resultForce = document.querySelector(".resultForce");
+      let resultForceValue = parseInt(
+        document.querySelector("#resultForceValue").value
+      );
+      let distanceAF = document.querySelector("#distanceAF");
+      let distanceRF = document.querySelector("#distanceRF");
+      let actualDistanceAF = parseInt(distanceAF.value);
+      let actualDistanceRF = parseInt(distanceRF.value);
+      let normalRotation = 19.5;
+      var distanceValueAF = 0;
+      var distanceValueRF = 0;
+
+      function updateAppliedForcePosition(distanceElement) {
+        distanceValueAF = parseInt(distanceElement.value);
+        const distanceNewValue = 299 - distanceValueAF;
+
+        actualDistanceAF = distanceNewValue;
+        if (distanceNewValue >= 299) {
+          actualDistanceAF = 299;
+        }
+        if (distanceNewValue < 0) {
+          actualDistanceAF = 0;
+        }
+        a = actualDistanceAF;
+        appliedForceArrow.style.left = actualDistanceAF + "px";
+      }
+
+      function updateResultForcePosition(distanceElement) {
+        distanceValueRF = parseInt(distanceElement.value);
+        const distanceNewValue = 250 - distanceValueRF;
+        actualDistanceRF = distanceNewValue;
+        if (distanceNewValue >= 250) {
+          actualDistanceRF = 250;
+        }
+        if (distanceNewValue < 0) {
+          actualDistanceRF = 0;
+        }
+        resultForce.style.right = actualDistanceRF + "px";
+      }
+
+      function applyForce() {
+        updateAppliedForcePosition(distanceAF);
+        updateResultForcePosition(distanceRF);
+
+        let appliedForceValue = parseInt(
+          document.querySelector("#force").value
+        );
+        const dp = (distanceValueAF * -20) / 299;
+        const dr = (distanceValueRF * -20) / 250;
+
+        let torque = -(appliedForceValue - resultForceValue);
+
+        if (torque < -normalRotation) {
+          torque = -normalRotation;
+        } else if (torque > normalRotation) {
+          torque = normalRotation;
+        }
+        lever.style.transform = `rotateZ(${torque}deg)`;
+      }
+
+      distanceAF.addEventListener("change", () => {
+        updateAppliedForcePosition(distanceAF);
+        applyForce();
+      });
+
+      distanceRF.addEventListener("change", () => {
+        updateResultForcePosition(distanceRF);
+        applyForce();
+      });
+
+      appliedForce.addEventListener("change", () => applyForce());
+
+      function restartSimulation() {
+        document.querySelector("#force").value = 0;
+        applyForce();
+      }
+
+      lever.style.transform = `rotateZ(${normalRotation}deg)`;
+    </script>
+  </body>
+</html>

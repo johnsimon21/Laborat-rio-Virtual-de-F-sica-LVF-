@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Simulação de Lançamento de Projétil</title>
+    <style>
+      #scene {
+        width: 800px;
+        height: 400px;
+        border: 1px solid #000;
+        position: relative;
+        overflow: hidden; /* Para esconder conteúdo que ultrapasse os limites da div */
+      }
+
+      #controls {
+        margin-top: 20px;
+      }
+
+      #controls label,
+      #controls input,
+      #controls button {
+        display: block;
+        margin-bottom: 10px;
+      }
+
+      .maxHeight {
+        background-color: red;
+        width: 4px;
+        position: absolute;
+        left: 49%;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="scene">
+      <div class="maxHeight"></div>
+    </div>
+    <div id="controls">
+      <label for="angle">Ângulo (graus):</label>
+      <input type="number" id="angle" value="45" />
+      <label for="velocity">Velocidade (m/s):</label>
+      <input type="number" id="velocity" value="20" />
+      <button id="launchButton">Lançar</button>
+    </div>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const angleInput = document.getElementById("angle");
+        const velocityInput = document.getElementById("velocity");
+        const launchButton = document.getElementById("launchButton");
+        const scene = document.getElementById("scene");
+        let counter = 0;
+        let firstPosition = 0;
+        let middlePosition = 0;
+        let lastPosition = 0;
+        launchButton.addEventListener("click", function () {
+          const angle = parseFloat(angleInput.value);
+          const velocity = parseFloat(velocityInput.value);
+          
+          // Calcular o tempo total de voo
+          const totalTime = calculateTotalTime(angle, velocity);
+          
+          // Calcular a altura máxima alcançada
+          const maxHeight = calculateMaxHeight(angle, velocity);
+          document.querySelector(".maxHeight").style.height = `${Math.floor(maxHeight)}px`;
+          console.log(maxHeight);
+          // Desenhar a trajetória do projétil na tela
+          drawProjectilePath(angle, velocity, totalTime, maxHeight);
+        });
+        
+        function calculateTotalTime(angle, velocity) {
+          const g = 9.81; // Aceleração devido à gravidade em m/s²
+          return (2 * velocity * Math.sin(degreesToRadians(angle))) / g;
+        }
+
+        function calculateMaxHeight(angle, velocity) {
+          const g = 9.81; // Aceleração devido à gravidade em m/s²
+          return (
+            Math.pow(velocity * Math.sin(degreesToRadians(angle)), 2) / (2 * g)
+          );
+        }
+
+        function drawProjectilePath(angle, velocity, totalTime, maxHeight) {
+          const g = 9.81; // Aceleração devido à gravidade em m/s²
+          const timeInterval = 0.1; // Intervalo de tempo para desenhar a trajetória
+
+          // Escala para desenhar a trajetória na tela
+          const scale = Math.min(
+            scene.offsetWidth / (totalTime * velocity), // Escala baseada no tempo total e velocidade
+            scene.offsetHeight / (maxHeight + 10) // Escala baseada na altura máxima (com margem adicional)
+          );
+
+          const initialX = 0;
+          const initialY = maxHeight * scale;
+
+          let x = initialX;
+          let y = initialY;
+          scene.innerHTML = ""; // Limpar a cena antes de desenhar
+
+          // Função auxiliar para adicionar ponto com atraso
+          function addPointWithDelay(t) {
+            setTimeout(() => {
+              // Calcular a posição do projétil para o tempo atual
+              x = velocity * Math.cos(degreesToRadians(angle)) * t;
+              y =
+                velocity * Math.sin(degreesToRadians(angle)) * t -
+                0.5 * g * Math.pow(t, 2);
+
+              // Criar um elemento div para representar o ponto na trajetória
+              const point = document.createElement("div");
+              point.style.width = "3px";
+              point.style.height = "3px";
+              point.style.background = "black";
+              point.style.borderRadius = "3px";
+              point.style.position = "absolute";
+              point.style.left = x * scale + "px";
+              point.style.top = initialY - y * scale + "px";
+
+              // Adicionar o ponto à cena
+              scene.appendChild(point);
+
+              // counter++
+              // if(counter === 1){
+              //   firstPosition = point.offsetLeft
+              // }else if(counter =){}}
+            }, t * 1000); // Multiplicando o tempo atual por 1000 para converter em milissegundos
+          }
+
+          // Adicionar cada ponto com atraso
+          for (let t = 0; t <= totalTime; t += timeInterval) {
+            addPointWithDelay(t);
+          }
+        }
+
+        function degreesToRadians(degrees) {
+          return (degrees * Math.PI) / 180;
+        }
+      });
+    </script>
+  </body>
+</html>

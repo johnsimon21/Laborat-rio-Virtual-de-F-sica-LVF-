@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lei da Inércia (Primeira Lei de Newton)</title>
+<style>
+    canvas {
+        border: 1px solid #000;
+    }
+</style>
+</head>
+<body>
+  <h1>Lei da Inércia (Primeira Lei de Newton)</h1>
+<canvas id="myCanvas" width="1400" height="200"></canvas>
+<div>
+    <label for="velocityInput">Velocidade:</label>
+    <input type="number" id="velocityInput" value="2">
+    <label for="massInput">Massa:</label>
+    <input type="number" id="massInput" value="1">
+    <button id="startButton">Iniciar</button>
+    <button id="stopButton">Parar</button>
+    <button id="resetButton">Reiniciar</button>
+</div>
+<script>
+    // Definindo o canvas e seu contexto
+    const canvas = document.getElementById('myCanvas');
+    const ctx = canvas.getContext('2d');
+
+    // Definindo as propriedades do objeto
+    let object = {
+        x: 50,
+        y: canvas.height / 2,
+        velocity: 0,
+        acceleration: 0,
+        mass: 0,
+        force: 0
+    };
+
+    // Raio do objeto (círculo)
+    const radius = 20;
+
+    // Função para desenhar o objeto
+    function drawObject() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        ctx.beginPath();
+        ctx.arc(object.x, object.y, radius, 0, Math.PI * 2);
+        ctx.fillStyle = 'blue';
+        ctx.fill();
+        ctx.closePath();
+    }
+
+    // Função para atualizar a posição do objeto
+    function updateObject() {
+        object.x += object.velocity;
+        // Verificar se o objeto atingiu o limite da borda do canvas
+        if (object.x - radius <= 0 || object.x + radius >= canvas.width) {
+            object.velocity = 0; // Parar o objeto
+        }
+    }
+
+    // Função de animação
+    let animationId;
+    function animate() {
+        updateObject();
+        drawObject();
+        if (object.velocity !== 0) {
+            animationId = requestAnimationFrame(animate);
+        }
+    }
+
+    // Event listener para o botão Iniciar
+    document.getElementById('startButton').addEventListener('click', function() {
+        object.velocity = parseFloat(document.getElementById('velocityInput').value);
+        object.mass = parseFloat(document.getElementById('massInput').value);
+        cancelAnimationFrame(animationId);
+        animate();
+    });
+
+    // Event listener para o botão Parar
+    document.getElementById('stopButton').addEventListener('click', function() {
+        cancelAnimationFrame(animationId);
+    });
+
+    // Event listener para o botão Reiniciar
+    document.getElementById('resetButton').addEventListener('click', function() {
+        cancelAnimationFrame(animationId);
+        object.x = 50;
+        drawObject();
+    });
+</script>
+</body>
+</html>

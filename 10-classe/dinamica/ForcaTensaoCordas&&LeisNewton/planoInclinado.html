@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Plano Inclinado</title>
+    <link rel="stylesheet" href="./planoInclinado.css" />
+    <link rel="stylesheet" href="/bootstrap-5.3.3-dist/css/bootstrap.css" />
+    <link rel="stylesheet" href="/index.css" />
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <!-- Adicionei Chart.js -->
+  </head>
+  <body>
+    <div class="container-fluid p-0">
+      <header
+        id="nav"
+        class="d-flex flex-wrap justify-content-center bg-black py-3"
+      >
+        <a
+          href="#"
+          class="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-body-emphasis text-decoration-none"
+        >
+          <svg class="bi me-2" width="40" height="32">
+            <use xlink:href="#bootstrap"></use>
+          </svg>
+          <span class="fs-4 text-white">Laboratório Virtual de Física</span>
+        </a>
+
+        <ul class="nav nav-pills">
+          <li class="nav-item">
+            <a href="#" class="nav-link text-white" aria-current="page">Home</a>
+          </li>
+          <li class="nav-item">
+            <a href="#" class="nav-link active">Simulações</a>
+          </li>
+          <li class="nav-item me-5">
+            <a href="#" class="nav-link text-white">Sobre</a>
+          </li>
+        </ul>
+      </header>
+
+      <div class="content flex h-70 scroll-auto">
+        <div class="flex-shrink-0 p-3 bg-black fixed-left" style="width: 280px">
+          <a
+            href="#"
+            class="d-flex align-items-center pb-3 mb-3 text-white text-decoration-none border-bottom"
+          >
+            <svg class="bi pe-none me-2" width="30" height="24">
+              <use xlink:href="#bootstrap"></use>
+            </svg>
+            <span class="fs-5 fw-semibold">10ª Classe</span>
+          </a>
+          <ul class="list-unstyled ps-0">
+            <li class="mb-1">
+              <button
+                class="btn btn-toggle text-white d-inline-flex align-items-center rounded border-0 collapsed"
+                data-bs-toggle="collapse"
+                data-bs-target="#home-collapse"
+                aria-expanded="true"
+              >
+                Cinemática
+              </button>
+              <div class="collapse" id="home-collapse">
+                <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+                  <li>
+                    <a
+                      href="/10-classe/cinematica/MRU.html"
+                      class="ps-2 text-secondary d-inline-flex text-decoration-none rounded"
+                      >Movimento Retilíneo Uniforme</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      href="/10-classe/cinematica/V.html"
+                      class="ps-2 text-secondary d-inline-flex text-decoration-none rounded"
+                      >Movimento Retilíneo Uniformemente Variado</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      href="/10-classe/cinematica/MCU.html"
+                      class="ps-2 text-secondary d-inline-flex text-decoration-none rounded"
+                      >Movimento Curvilíneo Uniforme</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      href="/10-classe/cinematica/MCUV.html"
+                      class="ps-2 text-secondary d-inline-flex text-decoration-none rounded"
+                      >Movimento Curvilíneo Uniformemente Variado</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      href="/10-classe/cinematica/LancamentoHorizontal.html"
+                      class="ps-2 text-secondary d-inline-flex text-decoration-none rounded"
+                      >Lançamento Horizontal</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      href="/10-classe/cinematica/LancamentoObliquo.html"
+                      class="ps-2 text-secondary d-inline-flex text-decoration-none rounded"
+                      >Lançamento Oblíquo</a
+                    >
+                  </li>
+                </ul>
+              </div>
+            </li>
+            <li class="mb-1">
+              <button
+                class="btn btn-toggle text-white d-inline-flex align-items-center rounded border-0 collapsed"
+                data-bs-toggle="collapse"
+                data-bs-target="#dynamics-collapse"
+                aria-expanded="true"
+              >
+                Dinâmica
+              </button>
+              <div class="collapse show" id="dynamics-collapse">
+                <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+                  <li>
+                    <a
+                      href="./forcaTencao.html"
+                      class="ps-2 text-secondary d-inline-flex text-decoration-none rounded"
+                      >Força de Tensão em Cordas</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      href="#"
+                      class="ps-2 text-white d-inline-flex text-decoration-none rounded"
+                      >Plano Inclinado</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      href="./segundaLeiNewtoniana.html"
+                      class="ps-2 text-secondary d-inline-flex text-decoration-none rounded"
+                      >2ª Lei de Newton ou Lei de Causa e Efeito</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      href="./terceiraLeiNewton.html"
+                      class="ps-2 text-secondary d-inline-flex text-decoration-none rounded"
+                      >3ª Lei de Newton ou Lei de Ação e Reação</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      href="./tracaoComPolias.html"
+                      class="ps-2 text-secondary d-inline-flex text-decoration-none rounded"
+                      >Força de Tensão Com Polias</a
+                    >
+                  </li>
+                </ul>
+              </div>
+            </li>
+            <li class="mb-1">
+              <button
+                class="btn btn-toggle text-white d-inline-flex align-items-center rounded border-0 collapsed"
+                data-bs-toggle="collapse"
+                data-bs-target="#work-energy-collapse"
+                aria-expanded="true"
+              >
+                Trabalho e Energia
+              </button>
+              <div class="collapse" id="work-energy-collapse">
+                <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+                  <li>
+                    <a
+                      href="/10-classe/Trabalho e Energia/energiaCinética.html"
+                      class="ps-2 text-secondary d-inline-flex text-decoration-none rounded"
+                      >Energia Cinética</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      href="/10-classe/Trabalho e Energia/energiaPotencial.html"
+                      class="ps-2 text-secondary d-inline-flex text-decoration-none rounded"
+                      >Energia Potencial</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      href="/10-classe/Trabalho e Energia/energiaMecânica.html"
+                      class="ps-2 text-secondary d-inline-flex text-decoration-none rounded"
+                      >Energia Mecânica</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      href="/10-classe/Trabalho e Energia/energiaPotencialElastica.html"
+                      class="ps-2 text-secondary d-inline-flex text-decoration-none rounded"
+                      >Energia Potencial Elástica</a
+                    >
+                  </li>
+                </ul>
+              </div>
+            </li>
+            <li class="mb-1">
+              <button
+                class="btn btn-toggle text-white d-inline-flex align-items-center rounded border-0 collapsed"
+                data-bs-toggle="collapse"
+                data-bs-target="#statics-collapse"
+                aria-expanded="true"
+              >
+                Estática
+              </button>
+              <div class="collapse" id="statics-collapse">
+                <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+                  <li>
+                    <a
+                      href="/10-classe/estática/maquinasSimples.html"
+                      class="ps-2 text-secondary d-inline-flex text-decoration-none rounded"
+                      >Máquinas Simples</a
+                    >
+                  </li>
+                </ul>
+              </div>
+            </li>
+          </ul>
+        </div>
+
+        <div class="animation p-2">
+          <div class="animation-cene plaInc">
+            <h1 class="fs-3 text-center pt-1">Plano Inclinado</h1>
+
+            <main class="main bg-info">
+              <button id="toggleFullscreen" class="resize-secreen">
+                Tela Cheia
+              </button>
+
+              <div class="plane-base">
+                <div class="plane">
+                  <div class="box">
+                    <div class="normal-force-stick">
+                      <img
+                        src="/10-classe/dinamica/ForcaTensaoCordas&&LeisNewton/assets/forward.png"
+                        class="forward forward-normal-force"
+                      />
+                      <div class="force-letter">
+                        <div class="arrow-letter">
+                          <img
+                            src="/10-classe/dinamica/ForcaTensaoCordas&&LeisNewton/assets/forward.png"
+                            class="forward forward-letter"
+                          />
+                        </div>
+                        N
+                      </div>
+                    </div>
+
+                    <div class="force-stick">
+                      <img
+                        src="/10-classe/dinamica/ForcaTensaoCordas&&LeisNewton/assets/forward.png"
+                        class="forward forward-force"
+                      />
+                      <div class="force-letter">
+                        <div class="arrow-letter">
+                          <img
+                            src="/10-classe/dinamica/ForcaTensaoCordas&&LeisNewton/assets/forward.png"
+                            class="forward forward-letter"
+                          />
+                        </div>
+                        F
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="base"></div>
+            </main>
+
+            <div
+              id="full-controllers"
+              class="controllers d-flex m-3 align-items-center"
+            >
+              <fieldset class="align-items-center">
+                <label for="frictionalForce">Força de Atrito (N)</label>
+                <input
+                  type="number"
+                  name="frictionalForce"
+                  value="0"
+                  class="form-control"
+                  id="frictionalForce"
+                />
+              </fieldset>
+
+              <div class="buttons ms-2 d-flex pt-3">
+                <input
+                  type="button"
+                  value="Iniciar"
+                  id="btnStart"
+                  class="btn btn-success"
+                  onclick="startSimulation()"
+                />
+                <input
+                  type="button"
+                  value="Pausar"
+                  id="btnPause"
+                  class="btn btn-secondary"
+                  onclick="pauseSimulation()"
+                />
+                <input
+                  type="button"
+                  value="Reiniciar"
+                  id="btnRestart"
+                  class="btn btn-primary"
+                  onclick="restartSimulation()"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="/main.js"></script>
+    <script src="/bootstrap-5.3.3-dist/js/bootstrap.js"></script>
+    <script>
+      let box = document.querySelector(".box");
+      var btnStart = document.querySelector("#btnStart");
+      var btnPause = document.querySelector("#btnPause");
+      var btnRestart = document.querySelector("#btnRestart");
+
+      let interval = null;
+      let intervalStarted = false;
+      let position = 0;
+      let boxPosition = 0;
+
+      function startSimulation() {
+        btnStart.disabled = true;
+        if (btnPause.disabled) {
+          btnPause.disabled = false;
+        }
+
+        if (!intervalStarted) {
+          interval = setInterval(() => {
+            let frictionalForceValue = parseInt(
+              document.querySelector("#frictionalForce").value
+            );
+            const incrementer = 4;
+            boxPosition += incrementer - frictionalForceValue;
+            position = boxPosition;
+            console.log(frictionalForceValue);
+
+            if (position >= 0 && incrementer > frictionalForceValue) {
+              if (position > 445) {
+                if (position < 445) {
+                  box.style.left = `445px`;
+                }
+                clearInterval(interval);
+              }
+
+              box.style.left = `${position}px`;
+            }
+          }, 100);
+        }
+      }
+
+      function pauseSimulation() {
+        clearInterval(interval);
+        btnPause.disabled = true;
+        btnStart.disabled = false;
+        intervalStarted = false;
+      }
+
+      function restartSimulation() {
+        clearInterval(interval);
+        box.style.left = "0px";
+
+        btnStart.disabled = false;
+        btnPause.disabled = true;
+        intervalStarted = false;
+      }
+    </script>
+  </body>
+</html>

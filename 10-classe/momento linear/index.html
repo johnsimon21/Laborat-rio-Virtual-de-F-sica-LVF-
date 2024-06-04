@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Canvas Animation</title>
+  <style>
+    canvas {
+      border: 1px solid black;
+    }
+  </style>
+</head>
+
+<body>
+  <canvas></canvas>
+  <div>
+    <h3>Objeto Vermelho</h3>
+    <label for="mass1">Massa (kg):</label>
+    <input type="number" id="mass1" placeholder="Massa do Objeto Vermelho"><br>
+    <label for="velX1">Velocidade X (m/s):</label>
+    <input type="number" id="velocityX1" placeholder="Velocidade X do Objeto Vermelho"><br>
+    <label for="velY1">Velocidade Y (m/s):</label>
+    <input type="number" id="velocityY1" placeholder="Velocidade Y do Objeto Vermelho"><br>
+    <h1 id="circle1Info"></h1>
+  </div>
+  <div>
+    <h3>Objeto Azul</h3>
+    <label for="mass2">Massa (kg):</label>
+    <input type="number" id="mass2" placeholder="Massa do Objeto Azul"><br>
+    <label for="velX2">Velocidade X (m/s):</label>
+    <input type="number" id="velocityX2" placeholder="Velocidade X do Objeto Azul"><br>
+    <label for="velY2">Velocidade Y (m/s):</label>
+    <input type="number" id="velocityY2" placeholder="Velocidade Y do Objeto Azul"><br>
+    <h1 id="circle2Info"></h1>
+  </div>
+  <h1 id="momentum"></h1>
+  <h1 id="atrito"></h1>
+  <button id="startButton">Iniciar</button>
+  <button id="resetButton">Resetar</button>
+  <script src="./main.js"></script>
+</body>
+
+</html>

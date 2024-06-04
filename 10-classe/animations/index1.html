@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LAB-FÍSICA - Laboratório Virtual</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <div class="header-container">
+      <div class="logo">
+        <h1 class="logo-text">LAB-FÍSICA</h1>
+      </div>
+      <div class="title">
+        <h2>Laboratório Virtual</h2>
+      </div>
+    </div>
+  </header>
+  <nav>
+    <canvas id="canvas" width="1500" height="200"></canvas>
+  </nav>
+  <main>
+    <div class="main-container">
+      <div class="control-panel">
+        <h3>Controle</h3>
+        <div class="control-group">
+          <label for="velocidade-inicial">Velocidade inicial:</label>
+          <input type="text" id="velocidade-inicial" value="0">
+        </div>
+        <div class="control-group">
+          <label for="angulo-lancamento">Ângulo de Lançamento:</label>
+          <input type="text" id="angulo-lancamento" value="0">
+        </div>
+        <button id="executar" onclick="draw()">Executar</button>
+      </div>
+      <div class="simulation-area">
+        <p>0 m/s²</p>
+        <p>0 m/s</p>
+      </div>
+    </div>
+  </main>
+  <footer>
+    <p>&copy; 2024 LAB-FÍSICA. Todos os direitos reservados.</p>
+  </footer>
+
+
+
+  <script>
+    // JavaScript para desenhar a animação
+    const canvas = document.getElementById('canvas');
+    const ctx = canvas.getContext('2d');
+
+    let positionX = 20; // Posição inicial do objeto
+    let velocityX = 1; // Velocidade inicial
+    let accelerationX = 0; // Aceleração inicial (0, pois a primeira lei de Newton trata de movimento constante em linha reta)
+    const force = 0.1; // Força aplicada para mudar o estado de movimento
+    const mass = 1; // Massa do objeto
+    const friction = 0.05; // Coeficiente de atrito
+
+    let forceApplied = false; // Flag para indicar se a força foi aplicada
+
+    function draw() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+      // Desenhar o objeto
+      ctx.fillStyle = 'blue';
+      ctx.fillRect(positionX, 100, 20, 20);
+
+      // Se a força não foi aplicada, o objeto se move com velocidade constante
+      if (!forceApplied) {
+        // Atualizar a posição do objeto
+        positionX += velocityX;
+      } else {
+        // Se a força foi aplicada, o objeto é acelerado
+        accelerationX = force / mass;
+        velocityX += accelerationX;
+        positionX += velocityX;
+      }
+
+      // Aplicar atrito (diminuir a velocidade)
+      velocityX -= velocityX * friction;
+
+      // Parar a animação se a velocidade for muito baixa
+      if (Math.abs(velocityX) < 0.01) {
+        velocityX = 0;
+      }
+
+      // Agendar próxima animação
+      requestAnimationFrame(draw);
+    }
+
+    // Aplicar a força após alguns segundos para simular a aplicação de uma força externa
+    setTimeout(() => {
+      forceApplied = true;
+    }, 3000);
+
+    // Iniciar a animação
+    
+  </script>
+</body>
+</html>

@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Simulação de Lançamento Oblíquo</title>
+    <link rel="stylesheet" href="/index.css" />
+    <link rel="stylesheet" href="./LancamentoObliquo.css" />
+    <link rel="stylesheet" href="/bootstrap-5.3.3-dist/css/bootstrap.css" />
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <!-- Adicionei Chart.js -->
+  </head>
+  <body>
+    <div class="container-fluid p-0">
+      <header
+        id="nav"
+        class="d-flex flex-wrap justify-content-center bg-black py-3"
+      >
+        <a
+          href="#"
+          class="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-body-emphasis text-decoration-none"
+        >
+          <svg class="bi me-2" width="40" height="32">
+            <use xlink:href="#bootstrap"></use>
+          </svg>
+          <span class="fs-4 text-white">Laboratório Virtual de Física</span>
+        </a>
+
+        <ul class="nav nav-pills">
+          <li class="nav-item">
+            <a href="#" class="nav-link text-white" aria-current="page">Home</a>
+          </li>
+          <li class="nav-item">
+            <a href="#" class="nav-link text-white active">Simulações</a>
+          </li>
+          <li class="nav-item me-5">
+            <a href="#" class="nav-link text-white">Sobre</a>
+          </li>
+        </ul>
+      </header>
+
+      <div class="content flex h-70 scroll-auto">
+        <div class="flex-shrink-0 p-3 bg-black fixed-left" style="width: 280px">
+          <a
+            href="#"
+            class="d-flex align-items-center pb-3 mb-3 text-white text-decoration-none border-bottom"
+          >
+            <svg class="bi pe-none me-2" width="30" height="24">
+              <use xlink:href="#bootstrap"></use>
+            </svg>
+            <span class="fs-5 fw-semibold">10ª Classe</span>
+          </a>
+          <ul class="list-unstyled ps-0">
+            <li class="mb-1">
+              <button
+                class="btn btn-toggle text-white d-inline-flex align-items-center rounded border-0 collapsed"
+                data-bs-toggle="collapse"
+                data-bs-target="#home-collapse"
+                aria-expanded="true"
+              >
+                Cinemática
+              </button>
+              <div class="collapse show" id="home-collapse">
+                <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+                  <li>
+                    <a
+                      href="./MRU.html"
+                      class="ps-2 d-inline-flex text-secondary text-decoration-none rounded"
+                      >Movimento Retilíneo Uniforme</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      href="./MRUV.html"
+                      class="ps-2 text-secondary d-inline-flex text-decoration-none rounded"
+                      >Movimento Retilíneo Uniformemente Variado</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      href="./MCU.html"
+                      class="ps-2 text-secondary d-inline-flex text-decoration-none rounded"
+                      >Movimento Curvilíneo Uniforme</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      href="./MCUV.html"
+                      class="ps-2 text-secondary d-inline-flex text-decoration-none rounded"
+                      >Movimento Curvilíneo Uniformemente Variado</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      href="./LancamentoHorizontal.html"
+                      class="ps-2 text-secondary d-inline-flex text-decoration-none rounded"
+                      >Lançamento Horizontal</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      href="#"
+                      class="ps-2 text-white d-inline-flex text-decoration-none rounded"
+                      >Lançamento Oblíquo</a
+                    >
+                  </li>
+                </ul>
+              </div>
+            </li>
+            <li class="mb-1">
+              <button
+                class="btn btn-toggle text-white d-inline-flex align-items-center rounded border-0 collapsed"
+                data-bs-toggle="collapse"
+                data-bs-target="#dynamics-collapse"
+                aria-expanded="true"
+              >
+                Dinâmica
+              </button>
+              <div class="collapse" id="dynamics-collapse">
+                <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+                  <li>
+                    <a
+                      href="/10-classe/dinamica/ForcaTensaoCordas&&LeisNewton/forcaTencao.html"
+                      class="ps-2 text-secondary d-inline-flex text-decoration-none rounded"
+                      >Força de Tensão em Cordas</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      href="/10-classe/dinamica/ForcaTensaoCordas&&LeisNewton/planoInclinado.html"
+                      class="ps-2 text-secondary d-inline-flex text-decoration-none rounded"
+                      >Plano Inclinado</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      href="/10-classe/dinamica/ForcaTensaoCordas&&LeisNewton/segundaLeiNewtoniana.html"
+                      class="ps-2 text-secondary d-inline-flex text-decoration-none rounded"
+                      >2ª Lei de Newton ou Lei de Causa e Efeito</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      href="/10-classe/dinamica/ForcaTensaoCordas&&LeisNewton/terceiraLeiNewton.html"
+                      class="ps-2 text-secondary d-inline-flex text-decoration-none rounded"
+                      >3ª Lei de Newton ou Lei de Ação e Reação</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      href="/10-classe/dinamica/ForcaTensaoCordas&&LeisNewton/tracaoComPolias.html"
+                      class="ps-2 text-secondary d-inline-flex text-decoration-none rounded"
+                      >Força de Tensão Com Polias</a
+                    >
+                  </li>
+                </ul>
+              </div>
+            </li>
+            <li class="mb-1">
+              <button
+                class="btn btn-toggle text-white d-inline-flex align-items-center rounded border-0 collapsed"
+                data-bs-toggle="collapse"
+                data-bs-target="#work-energy-collapse"
+                aria-expanded="true"
+              >
+                Trabalho e Energia
+              </button>
+              <div class="collapse" id="work-energy-collapse">
+                <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+                  <li>
+                    <a
+                      href="/10-classe/Trabalho e Energia/energiaCinética.html"
+                      class="ps-2 text-secondary d-inline-flex text-decoration-none rounded"
+                      >Energia Cinética</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      href="/10-classe/Trabalho e Energia/energiaPotencial.html"
+                      class="ps-2 text-secondary d-inline-flex text-decoration-none rounded"
+                      >Energia Potencial</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      href="/10-classe/Trabalho e Energia/energiaMecânica.html"
+                      class="ps-2 text-secondary d-inline-flex text-decoration-none rounded"
+                      >Energia Mecânica</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      href="/10-classe/Trabalho e Energia/energiaPotencialElastica.html"
+                      class="ps-2 text-secondary d-inline-flex text-decoration-none rounded"
+                      >Energia Potencial Elástica</a
+                    >
+                  </li>
+                </ul>
+              </div>
+            </li>
+            <li class="mb-1">
+              <button
+                class="btn btn-toggle text-white d-inline-flex align-items-center rounded border-0 collapsed"
+                data-bs-toggle="collapse"
+                data-bs-target="#statics-collapse"
+                aria-expanded="true"
+              >
+                Estática
+              </button>
+              <div class="collapse" id="statics-collapse">
+                <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+                  <li>
+                    <a
+                      href="/10-classe/estática/maquinasSimples.html"
+                      class="ps-2 text-secondary d-inline-flex text-decoration-none rounded"
+                      >Máquinas Simples</a
+                    >
+                  </li>
+                </ul>
+              </div>
+            </li>
+          </ul>
+        </div>
+
+        <div class="animation p-2">
+          <div class="animation-cene">
+            <h1 class="fs-3 text-center pt-1">
+              Simulação de Lançamento Oblíquo
+            </h1>
+
+            <div id="animationContainer" class="border-0 bg-info">
+              
+            </div>
+
+            <div id="info" >
+              <p>Tempo: <span id="tempo">0.00</span> s</p>
+              <p>
+                Movimento Horizontal:
+                <span id="movimentoHorizontal">0.00</span> m
+              </p>
+              <p>
+                Movimento Vertical: <span id="movimentoVertical">0.00</span> m
+              </p>
+              <p>Altura Máxima: <span id="alturaMaxima">0</span> m</p>
+            </div>
+
+            <form id="inputForm" class="d-flex mt-2">
+              <fieldset class="d-flex align-items-center">
+                <label for="altura">Altura (H) em metros</label>
+                <input
+                  type="number"
+                  id="altura"
+                  name="altura"
+                  step="0.1"
+                  value="0"
+                  class="form-control"
+                  required
+                />
+              </fieldset>
+              <fieldset class="d-flex align-items-center">
+                <label for="velocidade">Velocidade Inicial (V0) em m/s</label>
+                <input
+                  type="number"
+                  id="velocidade"
+                  name="velocidade"
+                  step="0.1"
+                  value="0"
+                  class="form-control"
+                  required
+                />
+              </fieldset>
+              <fieldset class="d-flex align-items-center">
+                <label for="angulo">Ângulo (θ) em graus</label>
+                <input
+                  type="number"
+                  id="angulo"
+                  name="angulo"
+                  step="0.1"
+                  value="0"
+                  class="form-control"
+                  required
+                />
+              </fieldset>
+              
+              <div class="controllers ms-2 d-flex pt-3">
+                <button type="submit" class="btn btn-success">
+                  Iniciar
+                </button>
+                <button
+                  id="pauseButton"
+                  class="btn btn-secondary mx-1"
+                  disabled
+                >
+                  Pausar
+                </button>
+                <button id="restartButton" class="btn btn-primary" disabled>
+                  Reiniciar
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="/main.js"></script>
+    <script src="/bootstrap-5.3.3-dist/js/bootstrap.js"></script>
+    <script>
+      let animacaoId;
+      let pausado = false;
+      let alturaGlobal;
+      let velocidadeGlobal;
+      let anguloGlobal;
+      let tempoAnimacao = 0;
+      let alturaMaxima = 0;
+      let maxHightDisplayed;
+      let transformValueMAxHight;
+      let maxHightValue = 0;
+      let lastPositionY = 0;
+
+      let tempoTotal, distanciaTotal, escala;
+      const g = 9.8; // Aceleração da gravidade (m/s²)
+
+      document
+        .getElementById("inputForm")
+        .addEventListener("submit", function (event) {
+          event.preventDefault();
+          alturaGlobal = parseFloat(document.getElementById("altura").value);
+          velocidadeGlobal = parseFloat(
+            document.getElementById("velocidade").value
+          );
+          anguloGlobal =
+            parseFloat(document.getElementById("angulo").value) *
+            (Math.PI / 180); // Converter para radianos
+          iniciarSimulacao(alturaGlobal, velocidadeGlobal, anguloGlobal);
+          document.getElementById("pauseButton").disabled = false;
+          document.getElementById("restartButton").disabled = false;
+        });
+
+      document
+        .getElementById("pauseButton")
+        .addEventListener("click", function () {
+          pausado = !pausado;
+          if (pausado) {
+            this.textContent = "Continuar";
+            cancelAnimationFrame(animacaoId);
+          } else {
+            this.textContent = "Pausar";
+            atualizarSimulacao();
+          }
+        });
+
+      document
+        .getElementById("restartButton")
+        .addEventListener("click", function () {
+          pausado = false;
+          tempoAnimacao = 0;
+          document.getElementById("pauseButton").textContent = "Pausar";
+          iniciarSimulacao(alturaGlobal, velocidadeGlobal, anguloGlobal);
+        });
+
+      function displayMaxHightLine() {
+        const linhaVertical = document.createElement("div");
+        linhaVertical.className = "linhaVertical";
+        linhaVertical.style.height = `${maxHightValue}px`;
+        linhaVertical.style.transform = transformValueMAxHight;
+        const container = document.getElementById("animationContainer");
+
+        container.appendChild(linhaVertical);
+      }
+
+      function iniciarSimulacao(altura, velocidade, angulo) {
+        const container = document.getElementById("animationContainer");
+        container.innerHTML = ""; // Limpar a simulação anterior
+        const v0x = velocidade * Math.cos(angulo);
+        const v0y = velocidade * Math.sin(angulo);
+        maxHightDisplayed = false;
+
+        tempoTotal = (v0y + Math.sqrt(v0y * v0y + 2 * g * altura)) / g;
+        distanciaTotal = v0x * tempoTotal;
+
+        // Altura máxima atingida
+        alturaMaxima = altura + (v0y * v0y) / (2 * g);
+
+        const containerWidth = container.clientWidth;
+        const containerHeight = container.clientHeight;
+
+        // Calcula a escala para ajustar ao tamanho do contêiner
+        const escalaX = containerWidth / (distanciaTotal + 2); // 2 pixels adicionais para margem
+        const escalaY = containerHeight / (alturaMaxima + 2); // 2 pixels adicionais para margem
+        escala = Math.min(escalaX, escalaY) * 0.8; // Ajuste de escala para manter proporções e margem
+
+        // Desenhar a linha horizontal que mostra a distância final
+        const linha = document.createElement("div");
+        linha.className = "linha";
+        linha.style.width = `${distanciaTotal * escala}px`;
+        linha.style.top = `${containerHeight - 2}px`; // Linha no final do contêiner
+        container.appendChild(linha);
+
+        // Desenhar o objeto inicial
+        const objeto = document.createElement("div");
+        objeto.className = "object";
+        objeto.style.transform = `translate(0px, ${
+          containerHeight - altura * escala
+        }px)`;
+        container.appendChild(objeto);
+
+        tempoAnimacao = 0;
+        atualizarSimulacao();
+      }
+
+      const container = document.getElementById("animationContainer");
+      function atualizarSimulacao() {
+        if (pausado) return;
+
+        const objeto = container.querySelector(".object");
+        const intervalo = 0.02; // Intervalo de tempo para atualização (em segundos)
+
+        const v0x = velocidadeGlobal * Math.cos(anguloGlobal);
+        const v0y = velocidadeGlobal * Math.sin(anguloGlobal);
+
+        const x = v0x * tempoAnimacao;
+        const y =
+          alturaGlobal +
+          v0y * tempoAnimacao -
+          0.5 * g * Math.pow(tempoAnimacao, 2);
+
+        // Parar no ponto final
+        if (tempoAnimacao > tempoTotal) {
+          objeto.style.transform = `translate(${
+            distanciaTotal * escala - 10
+          }px, ${container.clientHeight - 15}px)`;
+          document.getElementById("tempo").textContent = tempoTotal.toFixed(2);
+          document.getElementById("movimentoHorizontal").textContent =
+            distanciaTotal.toFixed(2);
+          document.getElementById(
+            "alturaMaxima"
+          ).textContent = `${alturaMaxima.toFixed(2)} m`;
+          document.getElementById("movimentoVertical").textContent = "0.00";
+          displayMaxHightLine();
+          return;
+        }
+
+        // Desenhar ponto da trajetória
+        const ponto = document.createElement("div");
+        ponto.className = "ponto";
+        ponto.style.transform = `translate(${x * escala}px, ${
+          container.clientHeight - y * escala
+        }px)`;
+        container.appendChild(ponto);
+
+        if (y.toFixed(2) === alturaMaxima.toFixed(2) && !maxHightDisplayed) {
+          transformValueMAxHight = `translate(${x * escala}px, ${
+            container.clientHeight - y * escala
+          }px)`;
+          maxHightValue = alturaMaxima * escala;
+
+          maxHightDisplayed = true;
+        } else {
+          if (y > lastPositionY) {
+            lastPositionY = y;
+
+            transformValueMAxHight = `translate(${x * escala}px, ${
+              container.clientHeight - y * escala
+            }px)`;
+            maxHightValue = alturaMaxima * escala;
+          }
+        }
+
+        // Atualizar posição do objeto
+        objeto.style.transform = `translate(${x * escala}px, ${
+          container.clientHeight - y * escala
+        }px)`;
+
+        // Atualizar valores de tempo e movimento
+        document.getElementById("tempo").textContent = tempoAnimacao.toFixed(2);
+        document.getElementById("movimentoHorizontal").textContent =
+          x.toFixed(2);
+        document.getElementById(
+          "alturaMaxima"
+        ).textContent = `${alturaMaxima.toFixed(2)} m`;
+        document.getElementById("movimentoVertical").textContent = y.toFixed(2);
+
+        tempoAnimacao += intervalo;
+        animacaoId = requestAnimationFrame(atualizarSimulacao);
+      }
+    </script>
+  </body>
+</html>

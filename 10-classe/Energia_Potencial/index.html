@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Queda de um Corpo - Energia Potencial</title>
+<style>
+  body {
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f0f0f0;
+  }
+  canvas {
+    display: flex;
+    margin: auto;
+    margin-top: 10px;
+    border-top: 5px solid black;
+    border-bottom: 5px solid black;
+    border-left: 6px solid black;
+    border-right: none;
+  }
+  .controls {
+    margin-top: 20px;
+    text-align: center;
+  }
+</style>
+</head>
+<body>
+<canvas id="fallingObjectCanvas" width="400" height="400"></canvas>
+<div class="controls">
+  <label for="initialHeight">Altura Inicial (m):</label>
+  <input type="number" id="initialHeight" value="0" onchange="updateValues()">
+  <br>
+  <label for="gravity">Aceleração da Gravidade (m/s²):</label>
+  <input type="number" id="gravity" value="0" onchange="updateValues()">
+  <br>
+  <label for="mass">Massa do Objeto (kg):</label>
+  <input type="number" id="mass" value="0" onchange="updateValues()">
+  <br>
+  <button onclick="startSimulation()">Iniciar</button>
+  <button onclick="stopSimulation()">Parar</button>
+  <button onclick="restartSimulation()">Reiniciar</button>
+</div>
+<script>
+  const canvas = document.getElementById('fallingObjectCanvas');
+  const ctx = canvas.getContext('2d');
+
+  const objectWidth = 30;
+  const objectHeight = 30;
+  let objectX = (canvas.width - objectWidth) / 1;
+  let initialHeight; // Altura inicial definida
+  let objectY;
+  let gravity; // Aceleração da gravidade em m/s²
+  let mass; // Massa do objeto (em kg)
+  let velocity = 0; // Velocidade inicial do objeto
+  let time = 0; // Tempo decorrido
+  let intervalId;
+
+  function drawObject() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    ctx.fillStyle = 'blue';
+    ctx.fillRect(objectX, objectY, objectWidth, objectHeight);
+  }
+
+  function updateObjectPosition() {
+    // Atualiza os valores dos inputs
+    initialHeight = parseFloat(document.getElementById('initialHeight').value);
+    gravity = parseFloat(document.getElementById('gravity').value);
+    mass = parseFloat(document.getElementById('mass').value);
+
+    // Calcula a altura do objeto usando a equação da cinemática
+    objectY += 0.5 * gravity * time * time;
+
+    // Atualiza o tempo
+    time += 0.1; // Incrementa o tempo em intervalos de 0.1 segundo
+
+    // Verifica se o objeto ultrapassou a borda inferior do canvas
+    if (objectY >= canvas.height - objectHeight) {
+      objectY = canvas.height - objectHeight; // Define a posição do objeto para a borda inferior
+      clearInterval(intervalId); // Para a simulação
+
+      // Calcula a energia potencial gravitacional usando a altura inicial como referência
+      const potentialEnergy = mass * gravity * initialHeight;
+
+      // Exibe o resultado
+      const result = `Ep = ${mass.toFixed(2)} kg × ${gravity.toFixed(2)} m/s² × ${initialHeight.toFixed(2)} m = ${potentialEnergy.toFixed(2)} J`;
+      document.getElementById('result').innerText = result;
+    }
+
+    // Redesenha o objeto
+    drawObject();
+  }
+
+  function startSimulation() {
+    clearInterval(intervalId); // Limpa qualquer animação anterior
+    initialHeight = parseFloat(document.getElementById('initialHeight').value); // Lê a altura inicial
+    objectY = initialHeight; // Define a altura inicial do objeto
+    time = 0; // Reseta o tempo
+    intervalId = setInterval(updateObjectPosition, 100); // Inicia a simulação
+  }
+
+  function stopSimulation() {
+    clearInterval(intervalId); // Para a simulação
+  }
+
+  function restartSimulation() {
+    stopSimulation(); // Para a simulação
+    startSimulation(); // Reinicia a simulação
+    time = 0; // Reseta o tempo
+    drawObject(); // Redesenha o objeto
+    document.getElementById('result').innerText = ''; // Limpa o resultado
+  }
+
+  // Atualiza a simulação quando os valores são alterados
+  function updateValues() {
+    // Os valores são atualizados automaticamente durante a simulação, então esta função não precisa fazer nada aqui
+  }
+</script>
+<div id="result" class="controls" style="margin-top: 10px;"></div>
+</body>
+</html>

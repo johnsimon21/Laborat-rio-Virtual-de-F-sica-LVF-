@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Leis de Newton</title>
+    <link rel="stylesheet" href="./css/style.css" />
+  </head>
+  <body>
+    <div class="title">3ª Lei de Newton ou Lei de Ação e Reação</div>
+
+    <div class="inputDatas">
+      <fieldset>
+        <label for="tension">Força (N)</label>
+        <input type="number" id="tensionValue" name="tension" value="0" />
+      </fieldset>
+      <fieldset>
+        <label for="mass">Massa (kg)</label>
+        <input type="number" id="massValue" name="mass" value="0" />
+      </fieldset>
+    </div>
+    <br />
+
+    <div class="controllers">
+      <input
+        type="button"
+        value="Iniciar"
+        onclick="startSimulation()"
+        id="btnStart"
+      />
+      <input
+        type="button"
+        value="Pausar"
+        onclick="pauseSimulation()"
+        id="btnPause"
+      />
+      <input
+        type="button"
+        value="Reiniciar"
+        onclick="restartSimulation()"
+        id="btnRestart"
+      />
+    </div>
+
+    <br />
+
+    <main id="oneBo">
+      <div class="box">
+        <span class="mass">m</span>
+        <div class="horizontalLine">
+          <img src="./assets/arrow.svg" class="tensionArrow" />
+          <div class="tension">T</div>
+          <img src="./assets/arrow.svg" class="direction" />
+        </div>
+      </div>
+      <div class="base"></div>
+    </main>
+
+    <footer>
+      <div id="acelerationValue"></div>
+    </footer>
+
+    <span>
+      <a href="segundaLeiNewtoniana.html" class="preview">Anterior</a>
+      <a href="tracaoComPolias.html" class="next">Próximo</a>
+    </span>
+
+    <script>
+      const box = document.querySelector(".box");
+
+      let interval = null; // Variável para armazenar o intervalo
+
+      function startSimulation() {
+        let position = parseInt(window.getComputedStyle(box).marginLeft);
+        document.querySelector("#btnPause");
+
+        interval = setInterval(() => {
+          let mass = parseInt(document.querySelector("#massValue").value);
+          let tensionForce =
+            parseInt(document.querySelector("#tensionValue").value) / mass;
+          document.querySelector("#acelerationValue").innerHTML =
+            mass !== 0
+              ? `Aceleração: ${typeof tensionForce === 'decimal' ? tensionForce.toFixed(1) : tensionForce} m/s²`
+              : "Aceleração: 0 m/s²";
+
+          position += tensionForce;
+          const mainWidth = document.querySelector("main").offsetWidth;
+          const boxWidth = box.offsetWidth;
+          if (position + boxWidth >= mainWidth || mass <= 0 || position <= 0) {
+            clearInterval(interval);
+          } else {
+            box.style.marginLeft = `${position}px`;
+          }
+        }, 100);
+      }
+
+      function pauseSimulation() {
+        clearInterval(interval); // Pausa o setInterval
+      }
+
+      function restartSimulation() {
+        clearInterval(interval);
+        box.style.marginLeft = "0px";
+      }
+    </script>
+  </body>
+</html>

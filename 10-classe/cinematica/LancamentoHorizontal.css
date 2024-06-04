@@ -1,0 +1,94 @@
+body {
+  font-family: Arial, sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  margin: 0;
+}
+
+.container {
+  text-align: center;
+}
+
+#inputForm {
+  margin-bottom: 20px;
+}
+
+.background-plane {
+  background-color: blueviolet;
+  position: relative;
+  overflow: hidden;
+}
+
+#animationContainer {
+  border: 1px solid #000;
+  padding-left: 100px;
+  padding-top: 40px;
+  position: relative;
+  width: 1080px;
+  height: 500px;
+  overflow: hidden;
+}
+
+.plane {
+  background-image: url("/10-classe/dinamica/ForcaTensaoCordas&&LeisNewton/assets/plane.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  width: 130px;
+  height: 45px;
+
+  transform: rotateY(180deg);
+
+  position: absolute;
+  top: 10px;
+  left: -130px;
+  z-index: 99;
+}
+
+.object {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  background-color: red;
+  border-radius: 50%;
+  z-index: 1;
+}
+
+.ponto {
+  position: absolute;
+  width: 2px;
+  height: 2px;
+  background-color: blue;
+  border-radius: 50%;
+  z-index: 0;
+}
+
+.linha {
+  position: absolute;
+  height: 2px;
+  background-color: green;
+  z-index: 0;
+}
+
+#info {
+  font-family: cursive;
+  background-color: rgba(202, 202, 202, 0.557);
+  color: rgb(26, 26, 35);
+
+  padding: 8px;
+  border-radius: 4px;
+
+  margin-top: 20px;
+  margin-right: 8px;
+  text-align: right;
+  position: absolute;
+  top: 115px;
+  right: 15px;
+}
+
+#info p {
+  margin: 5px 0;
+}
