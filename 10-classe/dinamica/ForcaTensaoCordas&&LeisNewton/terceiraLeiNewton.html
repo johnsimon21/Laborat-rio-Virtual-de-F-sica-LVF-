@@ -234,7 +234,7 @@
               </button>
 
               <div class="display-variables">
-                <div id="acelerationValue"></div>
+                <div id="acelerationValue">Aceleração: 0 m/s²</div>
               </div>
 
               <div class="box">
@@ -248,14 +248,14 @@
                   </div>
 
                   <div class="frictionalForce">
-                    <img
+                    <!-- <img
                       src="./assets/arrow.svg"
                       class="tensionArrow goBackForceArrow frictionalForceArrow"
-                    />
+                    /> -->
                     <div
                       class="tension goBackForceLetter frictionalForceLetter"
                     >
-                      f<sub style="font-size: 1rem">a</sub>
+                      <!-- f<sub style="font-size: 1rem">a</sub> -->
                     </div>
                   </div>
                 </div>
@@ -268,7 +268,7 @@
                     src="./assets/left_arrow_icon.svg"
                     class="directionLeft direction"
                   />
-                  <img src="./assets/arrow.svg" class="direction" />
+                  <div class="hand"></div>
                 </div>
 
                 <div class="frictionalForceLine d-none">
@@ -403,11 +403,8 @@
 
           document.querySelector("#acelerationValue").innerHTML =
             mass !== 0 && mass1 !== 0
-              ? `Aceleração: ${
-                  typeof tensionForce === "decimal"
-                    ? tensionForce.toFixed(1)
-                    : tensionForce
-                } m/s²`
+              ? `Aceleração: ${tensionForce.toFixed(1)
+                    } m/s²`
               : "Aceleração: 0 m/s²";
 
           position += tensionForce;

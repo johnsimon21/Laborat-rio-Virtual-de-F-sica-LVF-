@@ -234,7 +234,23 @@
               </button>
 
               <div class="display-variables">
-                <div id="acelerationValue"></div>
+                <div>-Equações</div>
+                <div class="expressions">
+                  <p class="equation">
+                    <span class="summary-name">Força Resultante (F<sub>res</sub>):</span>
+                    ∑F<sub>x</sub> = m.a
+                  </p>
+                  <p class="equation">
+                    <span class="summary-name">Força Aplicada (F):</span>
+                    F = m.a + f
+                  </p>
+                  <p class="equation">
+                    <span class="summary-name">Força de Atrito (f):</span>
+                    f = μmg
+                  </p>
+                </div>
+                <div class="separator"></div>
+                <div id="acelerationValue">Aceleração: 0 m/s²</div>
               </div>
 
               <div class="box secondLay">
@@ -392,11 +408,7 @@
 
           document.querySelector("#acelerationValue").innerHTML =
             mass !== 0
-              ? `Aceleração: ${
-                  typeof tensionForce === "decimal"
-                    ? tensionForce.toFixed(1)
-                    : tensionForce
-                } m/s²`
+              ? `Aceleração: ${tensionForce.toFixed(1)} m/s²`
               : "Aceleração: 0 m/s²";
 
           position += tensionForce;

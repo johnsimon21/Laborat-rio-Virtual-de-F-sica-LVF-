@@ -4,8 +4,8 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Movimento Circular Uniformemente Variado</title>
-    <link rel="stylesheet" href="/index.css" />
     <link rel="stylesheet" href="./MCU.css" />
+    <link rel="stylesheet" href="/index.css" />
     <link rel="stylesheet" href="/bootstrap-5.3.3-dist/css/bootstrap.css" />
   </head>
   <body>
@@ -232,6 +232,20 @@
             </button>
 
             <div class="display-variables">
+              <summary>-Equações</summary>
+              <div class="expressions">
+                <p>
+                  <span class="summary-name">Posição Angular (θ):</span> θ<sub
+                    >(t)</sub
+                  >
+                  = θ<sub>0</sub> + ω<sub>0</sub>t + &frac12;.at²
+                </p>
+                <p>
+                  <span class="summary-name">Velocidade Angular (ω):</span> ω =
+                  ω<sub>0</sub> + αt
+                </p>
+              </div>
+              <div class="separator"></div>
               <div class="angularVelocity" id="angularVelocity">
                 (velocidade Angular) ω = 0 (rad/s)
               </div>
@@ -246,13 +260,20 @@
               <div class="radius-fixed"></div>
               <div class="trajectory">
                 <div class="radius-letter">r</div>
+                <div class="angular-velocity-stick">
+                  <img
+                    src="/10-classe/dinamica/ForcaTensaoCordas&&LeisNewton/assets/forward.png"
+                    class="forward forward-angular-velocity"
+                  />
+                  <div class="angular-velocity-letter">ω</div>
+                </div>
                 <div class="sattelite" id="sattelite">
                   <div class="velocity-stick">
                     <img
                       src="/10-classe/dinamica/ForcaTensaoCordas&&LeisNewton/assets/forward.png"
                       class="forward forward-velocity"
                     />
-                    <div class="letter">
+                    <div class="letter aceleration-letter">
                       <div class="arrow-letter">
                         <img
                           src="/10-classe/dinamica/ForcaTensaoCordas&&LeisNewton/assets/forward.png"
@@ -332,6 +353,10 @@
       var btnStart = document.querySelector("#btnStart");
       var btnPause = document.querySelector("#btnPause");
       var btnRestart = document.querySelector("#btnRestart");
+      var angularVelocityStick = document.querySelector(
+        ".angular-velocity-stick"
+      );
+      var acelerationStick = document.querySelector(".aceleration-letter");
       // let initialPositionValue = parseInt(
       //   document.querySelector("#initialPositionValue").value
       // );
@@ -345,7 +370,7 @@
       var position = 0;
       var animationInterval = null;
 
-      trajectory.style.top = "100px";
+      trajectory.style.top = "170px";
 
       function startAnimation() {
         let initialVelocity = document.querySelector("#initialVelocityValue");
@@ -370,11 +395,16 @@
           (initialVelocityValue + acelerationValue) / orbitRadius;
         var speed = angularVelocityValue;
         if (speed < 0) {
-          sattelite.style.transform = "rotate(-315deg)";
+          sattelite.style.transform = "rotateX(-180deg) rotate(-312deg)";
+          acelerationStick.classList.add("velocity-letter-rotate");
+          angularVelocityStick.classList.add("angular-velocity-letter-rotate");
         } else {
           sattelite.style.transform = "rotate(230deg)";
+          angularVelocityStick.classList.remove(
+            "angular-velocity-letter-rotate"
+          );
         }
-        trajectory.style.left = "100px";
+        trajectory.style.left = "170px";
         const angleValue = (angle * 180) / Math.PI;
         trajectory.style.transform = "rotate(" + angleValue + "deg)";
         frames = 0;
@@ -398,7 +428,9 @@
         frequency.innerHTML = `(Frequência): f = ${
           Math.floor(frequencyValue * 100) / 100
         } Hz`;
-        angularVelocity.innerHTML = `(velocidade Angular) ω = ${angularVelocityValue} (rad/s)`;
+        angularVelocity.innerHTML = `(velocidade Angular) ω = ${angularVelocityValue.toFixed(
+          2
+        )} (rad/s)`;
         timeElement.innerHTML = `(Tempo) t = ${time++} (s)`;
 
         angle += speed;

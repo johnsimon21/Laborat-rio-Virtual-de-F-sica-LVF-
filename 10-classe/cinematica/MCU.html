@@ -230,6 +230,18 @@
             </button>
 
             <div class="display-variables">
+              <summary>-Equações</summary>
+              <div class="expressions">
+                <p>
+                  <span class="summary-name">Posição Angular (θ):</span>
+                  θ<sub>(t)</sub> = θ<sub>0</sub> + ωt
+                </p>
+                <p>
+                  <span class="summary-name">Velocidade Angular (ω):</span>
+                  ω = Δθ/Δt
+                </p>
+              </div>
+              <div class="separator"></div>
               <div class="angularVelocity" id="angularVelocity">
                 (velocidade Angular) ω = 0 (rad/s)
               </div>
@@ -243,13 +255,20 @@
               <div class="radius-fixed"></div>
               <div class="trajectory">
                 <div class="radius-letter">r</div>
+                <div class="angular-velocity-stick">
+                  <img
+                    src="/10-classe/dinamica/ForcaTensaoCordas&&LeisNewton/assets/forward.png"
+                    class="forward forward-angular-velocity"
+                  />
+                  <div class="angular-velocity-letter">ω</div>
+                </div>
                 <div class="sattelite" id="sattelite">
                   <div class="velocity-stick">
                     <img
                       src="/10-classe/dinamica/ForcaTensaoCordas&&LeisNewton/assets/forward.png"
                       class="forward forward-velocity"
                     />
-                    <div class="letter">
+                    <div class="letter velocity-letter">
                       <div class="arrow-letter">
                         <img
                           src="/10-classe/dinamica/ForcaTensaoCordas&&LeisNewton/assets/forward.png"
@@ -314,6 +333,10 @@
       var btnStart = document.querySelector("#btnStart");
       var btnPause = document.querySelector("#btnPause");
       var btnRestart = document.querySelector("#btnRestart");
+      var angularVelocityStick = document.querySelector(
+        ".angular-velocity-stick"
+      );
+      var velocityStick = document.querySelector(".velocity-letter");
 
       var orbitRadius = orbit.offsetWidth / 2;
       var angle = 0;
@@ -321,7 +344,7 @@
       var frames = 0;
       var animationInterval = null;
 
-      trajectory.style.top = "100px";
+      trajectory.style.top = "170px";
 
       let velocity = document.querySelector("#velocityValue");
 
@@ -338,11 +361,16 @@
         const angularVelocityValue = velocityValue / orbitRadius;
         var speed = angularVelocityValue; // Velocidade de rotação em radianos por segundo
         if (speed < 0) {
-          sattelite.style.transform = "rotate(-315deg)";
+          sattelite.style.transform = "rotateX(-180deg) rotate(-312deg)";
+          velocityStick.classList.add("velocity-letter-rotate");
+          angularVelocityStick.classList.add("angular-velocity-letter-rotate");
         } else {
           sattelite.style.transform = "rotate(230deg)";
+          angularVelocityStick.classList.remove(
+            "angular-velocity-letter-rotate"
+          );
         }
-        trajectory.style.left = "100px";
+        trajectory.style.left = "170px";
         const angleValue = (angle * 180) / Math.PI;
         trajectory.style.transform = "rotate(" + angleValue + "deg)";
 

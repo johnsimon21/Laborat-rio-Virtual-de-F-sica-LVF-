@@ -41,6 +41,7 @@ main {
     height: 500px;
 
     position: relative;
+    overflow: hidden;
 }
 
 .base {
@@ -234,4 +235,33 @@ label {
 .resize-secreen:hover{
     background-color: rgb(8, 50, 77);
     color: #fff;
+}
+
+
+.summary-name {
+    font-size: .8rem;
+    font-weight: 600;
+    color: rgb(17, 10, 10);
+}
+
+.separator {
+    border-top: 1.4px dashed black;
+    width: 100%;
+}
+
+.hand {
+    background-image: url("/10-classe/dinamica/ForcaTensaoCordas&&LeisNewton/assets/hand.svg");
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    width: 100px;
+    height: 80px;
+    
+    transform: rotate(90deg);
+
+    position: inherit;
+    top: -35px;
+    right: -80px;
+
 }

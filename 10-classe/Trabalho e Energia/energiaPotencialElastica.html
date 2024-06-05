@@ -261,6 +261,25 @@
               </div>
 
               <div class="filedDatas display-variables">
+                <span>
+                  <div>-Equação</div>
+                  <div class="expressions">
+                    <p class="equation">
+                      <span class="summary-name"
+                        >Posição da deformação (Δx):</span
+                      >
+                      Δx = -F/k
+                    </p>
+                    <p class="equation">
+                      <span class="summary-name"
+                        >Energia Potencial Elástica (U):</span
+                      >
+                      U = &frac12;.k.(Δx)²
+                    </p>
+                  </div>
+                </span>
+                <div class="separator"></div>
+
                 <br />
                 <span class="deformationValue">
                   Posição da deformação X = 0 m</span
@@ -337,6 +356,9 @@
       const springWidth = 40;
 
       function applyForce() {
+        let springEnergyValue = document.querySelector(".springEnergyValue");
+
+        let deformationValue = document.querySelector(".deformationValue");
         const force = parseInt(document.querySelector("#force").value);
         const springConst = parseInt(
           document.querySelector("#springConst").value
@@ -368,7 +390,7 @@
           deformationStick.style.width = `${distance}px`;
           deformationStick.style.right = `1px`;
           let valueOfDeformation = parseInt(
-            (distance - (distance * 70) / 100).toFixed(0)
+            ((distance - (distance * 70) / 100)).toFixed(0)
           );
 
           deformationValue.innerHTML = `Posição da deformação X = ${valueOfDeformation}cm`;
@@ -396,7 +418,6 @@
               spring[i].style.left = `${deformation >= 0 ? deformation : 0}px`;
             }
           }
-          console.log(deformation);
 
           document.querySelector(".arrow").style.transform = "rotateZ(180deg)";
 

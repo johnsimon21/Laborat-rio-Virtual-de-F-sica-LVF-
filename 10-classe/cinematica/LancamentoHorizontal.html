@@ -234,18 +234,30 @@
                 <div class="stick2"></div>
               </div>
               <div id="animationContainer" class="border-0 bg-info main"></div>
-            </div>
-            <div id="info" class="">
-              <p>Movimento Horizontal:<strong> x = v<sub>0x</sub>.t</strong></p>
-              <p>Movimento Vertical:<strong> y = &frac12;.g.t²</strong></p>
-              <p class="">Tempo: <span id="tempo">0.00</span> s</p>
-              <p class="">
-                Movimento Horizontal:
-                <span id="movimentoHorizontal">0.00</span> m
-              </p>
-              <p>
-                Movimento Vertical: <span id="movimentoVertical">0.00</span> m
-              </p>
+              <div class="display-variables">
+                <span>
+                  <div>-Equações</div>
+                  <div class="expressions">
+                    <p class="equation">
+                      <span class="summary-name">Movimento Horizontal (x):</span>
+                      x = v<sub>ox</sub>.t
+                    </p>
+                    <p class="equation">
+                      <span class="summary-name">Movimento Vertical (y):</span>
+                      y = &frac12;.g.t²
+                    </p>
+                  </div>
+                </span>
+                <div class="separator"></div>
+                <p class="">Tempo: <span id="tempo">0.00</span> s</p>
+                <p class="">
+                  Movimento Horizontal:
+                  <span id="movimentoHorizontal">0.00</span> m
+                </p>
+                <p>
+                  Movimento Vertical: <span id="movimentoVertical">0.00</span> m
+                </p>
+              </div>
             </div>
 
             <form id="inputForm" class="d-flex mt-2">
