@@ -1,0 +1,116 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    width: 100%;
+    height: 100vh;
+    background-color: rgba(15, 20, 30, 0.854);
+}
+
+.flex {
+    display: flex;
+}
+
+.lc-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.relative {
+    position: relative;
+}
+.absolute {
+    position: absolute;
+}
+.inherit {
+    position: inherit;
+}
+
+.scene {
+    width: 1000px;
+    height: 500px;
+    background-color: rgb(10, 15, 18);
+    background-image: url('../assets/night_sky.png');
+    background-position: center;
+    background-size: contain;
+}
+
+.orbit-earth {
+    width: 230px;
+    height: 230px;
+    border: 1px solid rgb(180, 180, 180);
+    border-radius: 100%;
+    position: relative;
+}
+
+.orbit-earth .sun { 
+    width: 100px;
+    height: 100px;
+    background-image: url('../assets/sun.png');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+.earth {
+    width: 30px;
+    height: 30px;
+    background-image: url('../assets/earth.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    position: absolute;
+}
+
+/* Direção do vetor */
+.earth .direction {
+    width: 2px;
+    height: 80px;
+    background-color: white;
+    top: 15px;
+
+    transform-origin: top;
+}
+
+.earth .direction svg.down_arrow {
+    width: 20px;
+    height: 20px;
+    fill: white;
+    left: -9px;
+    bottom: -7px;
+}
+
+.zoom {
+    left: 40px;
+    top: 40px;
+}
+
+.zoom button{
+    width: 30px;
+    height: 30px;
+    padding: 3px;
+    margin-inline: 2px;
+
+    border-radius: 100%;
+    border: 1px solid rgb(167, 168, 171);
+    font-size: 1.2rem;
+    background-color: rgb(20, 157, 176);
+
+    transition: ease-in-out 360ms;
+
+    cursor: pointer;
+}
+
+.zoom button:hover{
+    background-color: rgb(64, 204, 222);
+}
+
+.zoom button svg{
+    width: 16px;
+}
+.zoom button svg circle{
+    fill: white;
+}

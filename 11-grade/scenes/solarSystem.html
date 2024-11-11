@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sistema Solar</title>
+    <link rel="stylesheet" href="../styles/index.css" />
+  </head>
+  <body class="flex lc-center">
+    <main class="scene flex lc-center relative">
+
+        <div class="zoom absolute flex">
+            <button id="plus" class="flex lc-center">
+               <svg enable-background="new 0 0 50 50" height="50px" id="Layer_1" version="1.1" viewBox="0 0 50 50" width="50px" xml:space="preserve" ><rect fill="none" height="50" width="50"/><circle cx="21" cy="20" fill="none" r="16" stroke="#000000" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/><line fill="none" stroke="#000000" stroke-miterlimit="10" stroke-width="4" x1="32.229" x2="45.5" y1="32.229" y2="45.5"/><line fill="none" stroke="#000000" stroke-miterlimit="10" stroke-width="2" x1="13" x2="29" y1="20" y2="20"/><line fill="none" stroke="#000000" stroke-miterlimit="10" stroke-width="2" x1="21" x2="21" y1="12" y2="28"/></svg>
+            </button>
+            <button id="out" class="flex lc-center">
+                <svg enable-background="new 0 0 50 50" height="50px" id="Layer_1" version="1.1" viewBox="0 0 50 50" width="50px" xml:space="preserve" ><circle cx="21" cy="20"  r="16" stroke="#000000" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/><line  stroke="#000000" stroke-miterlimit="10" stroke-width="4" x1="32.229" x2="45.5" y1="32.229" y2="45.5"/><line  fill="none" stroke="#000000" stroke-miterlimit="10" stroke-width="2" x1="13" x2="29" y1="20" y2="20"/></svg></button>
+        </div>
+
+      <div class="orbit-earth flex lc-center">
+        <div class="sun"></div>
+        <div id="earth" class="earth flex lc-center">
+          <div id="direction" class="direction inherit">
+            <svg class="down_arrow inherit" viewBox="0 0 512 512" width="512px">
+              <polygon
+                points="396.6,160 416,180.7 256,352 96,180.7 115.3,160 256,310.5"
+              />
+            </svg>
+          </div>
+        </div>
+      </div>
+    </main>
+    <script src="../scripts/solarSystem/index.js"></script>
+  </body>
+</html>
